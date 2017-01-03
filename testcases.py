@@ -33,35 +33,35 @@ class CDeviceTest (unittest.TestCase):
 ##    def testAllSockets (self):
 ##        self.assertEqual (self.allSocketsTest(), True)
 
-##    def testHolidays (self):
-##        self.assertEqual (isDayHoliday (2016, 1, 1), True, "1. Januar IST ein Feiertag")
-##        self.assertEqual (isDayHoliday (2016, 1, 2), False, "2. Januar ist KEIN Feiertag")
-##        self.assertEqual (isDayHoliday (2016, 2, 7), False, "7. Februar ist KEIN Feiertag")
-##        self.assertEqual (isDayHoliday (2016, 2, 8), True, "8. Februar IST ein Feiertag")
-##        self.assertEqual (isDayHoliday (2016, 2, 11), True, "11. Februar IST ein Feiertag")
-##        self.assertEqual (isDayHoliday (2016, 2, 13), False, "13. Februar ist KEIN Feiertag")
-##        self.assertEqual (isDayHoliday (2016, 3, 20), False, "20. März ist KEIN Feiertag")
-##        self.assertEqual (isDayHoliday (2016, 3, 22), True, "22. März IST ein Feiertag")
-##        self.assertEqual (isDayHoliday (2016, 4, 2), False, "4. April ist KEIN Feiertag")
-##        self.assertEqual (isDayHoliday (2016, 5, 16), False, "16. Mai ist KEIN Feiertag")
-##        self.assertEqual (isDayHoliday (2016, 5, 17), True, "17. Mai IST ein Feiertag")
-##        self.assertEqual (isDayHoliday (2016, 5, 28), True, "28. Mai IST ein Feiertag")
-##        self.assertEqual (isDayHoliday (2016, 5, 29), False, "29. Mai ist KEIN Feiertag")
-##        self.assertEqual (isDayHoliday (2016, 7, 19), False, "19. Juli ist KEIN Feiertag")
-##        self.assertEqual (isDayHoliday (2016, 7, 20), True, "20. Juli ist EIN Feiertag")
-##        self.assertEqual (isDayHoliday (2016, 9, 12), True, "12. September ist EIN Feiertag")
-##        self.assertEqual (isDayHoliday (2016, 9, 13), False, "13. September ist KEIN Feiertag")
-##        self.assertEqual (isDayHoliday (2016, 10, 3), True, "3. Oktober ist ein Feiertag")
-##        self.assertEqual (isDayHoliday (2016, 11, 1), True, "1. November ist ein Feiertag")
-##        self.assertRaises (AssertionError, isDayHoliday, 2016, 13, 32)
+    def testHolidays (self):
+        self.assertEqual (isDayHoliday (2017, 1, 1), True, "1. Januar IST ein Feiertag")
+        self.assertEqual (isDayHoliday (2017, 1, 2), False, "2. Januar ist KEIN Feiertag")
+        self.assertEqual (isDayHoliday (2017, 2, 7), False, "7. Februar ist KEIN Feiertag")
+        self.assertEqual (isDayHoliday (2017, 2, 28), True, "28. Februar IST ein Feiertag")
+        self.assertEqual (isDayHoliday (2017, 3, 6), False, "6th March is NOT a holiday")
+        self.assertEqual (isDayHoliday (2017, 4, 11), True, "11th April IS a holiday")
+        self.assertEqual (isDayHoliday (2017, 6, 7), True, "7th June IS a holiday")
+        self.assertEqual (isDayHoliday (2017, 6, 19), False, "19thJume is NOT a holiday")
+        self.assertEqual (isDayHoliday (2017, 9, 11), True, "11th September IS a holiday")
+        self.assertEqual (isDayHoliday (2017, 9, 12), False, "12th September is NOT a holiday")
+        self.assertEqual (isDayHoliday (2017, 12, 21), True, "21st December IS a holiday")
+        self.assertEqual (isDayHoliday (2017, 12, 20), False, "20th December is NOT a holiday")
+        self.assertEqual (isDayHoliday (2017, 4, 14), True, "14th April IS a holiday")
+        self.assertEqual (isDayHoliday (2017, 4, 2), False, "3rd April is NOT a holiday")
+        self.assertEqual (isDayHoliday (2017, 5, 25), True, "25th May is a holiday")
+        self.assertEqual (isDayHoliday (2017, 9, 12), False, "12th September is not a holiday")
+        self.assertEqual (isDayHoliday (2017, 10, 3), True, "3rd October is a holiday")
+        self.assertEqual (isDayHoliday (2017, 6, 15), True, "15th June is a holiday")
+        self.assertEqual (isDayHoliday (2017, 11, 1), True, "1. November ist ein Feiertag")
+        self.assertRaises (AssertionError, isDayHoliday, 2017, 13, 32)
 
-    def testTVPower (self):
-        oTV = CTVdevice()
-        bIsAlreadyOn = oTV.ping()
-        if bIsAlreadyOn:
-            oTV.switchOff()
-        else:
-            oTV.switchOn()
+##    def testTVPower (self):
+##        oTV = CTVdevice()
+##        bIsAlreadyOn = oTV.ping()
+##        if bIsAlreadyOn:
+##            oTV.switchOff()
+##        else:
+##            oTV.switchOn()
         
          
 
