@@ -21,7 +21,8 @@
 		</Entry_Attribut>
  		<Entry_Attribut>
 			<KEY typ="str">TYPE</KEY>
-			<VALUE typ="str">SCHOOL_HOLIDAYS</VALUE> /Entry_Attribut>
+			<VALUE typ="str">SCHOOL_HOLIDAYS</VALUE> /Entry_Attribut&gt;
+    </Entry_Attribut>  
 		<Entry_Attribut>
 			<KEY typ="str">PERIOD</KEY>
 			<VALUE typ="str">27.02.-03.03.</VALUE>
