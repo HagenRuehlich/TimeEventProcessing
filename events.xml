@@ -119,99 +119,7 @@
  <EVENT>
  		<Event_Attribut>
 			<KEY typ="str">Comment</KEY>
-			<VALUE typ="str">Buegeleisen Steckdose morgens abschalten</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">Event Type</KEY>
-			<VALUE typ="str">SOCKET</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">SOCKET_NO</KEY>
-			<VALUE typ="str">B</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">SOCKET_SIGNAL</KEY>
-			<VALUE typ="str">OFF</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">Weekdays</KEY>
-			<VALUE typ="str">MONDAY;TUESDAY;WEDNESDAY;THURSDAY;FRIDAY</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">Time</KEY>
-			<VALUE typ="str">8:00</VALUE>
-		</Event_Attribut>
-    <Event_Attribut>
-			<KEY typ="str">PUBLIC_HOLIDAY</KEY>
-			<VALUE typ="str">NO</VALUE>
-    </Event_Attribut>
-	</EVENT>
- 
- <EVENT>
- 		<Event_Attribut>
-			<KEY typ="str">Comment</KEY>
-			<VALUE typ="str">Buegeleisen Steckdose mittags anschalten</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">Event Type</KEY>
-			<VALUE typ="str">SOCKET</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">SOCKET_NO</KEY>
-			<VALUE typ="str">B</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">SOCKET_SIGNAL</KEY>
-			<VALUE typ="str">ON</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">Weekdays</KEY>
-			<VALUE typ="str">MONDAY;TUESDAY;WEDNESDAY;THURSDAY;FRIDAY</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">Time</KEY>
-			<VALUE typ="str">12:00</VALUE>
-		</Event_Attribut>
-    <Event_Attribut>
-			<KEY typ="str">PUBLIC_HOLIDAY</KEY>
-			<VALUE typ="str">NO</VALUE>
-    </Event_Attribut>
-	</EVENT>
-  <EVENT>
- 		<Event_Attribut>
-			<KEY typ="str">Comment</KEY>
-			<VALUE typ="str">Ladestattion morgens abschalten</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">Event Type</KEY>
-			<VALUE typ="str">SOCKET</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">SOCKET_NO</KEY>
-			<VALUE typ="str">A</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">SOCKET_SIGNAL</KEY>
-			<VALUE typ="str">OFF</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">Weekdays</KEY>
-			<VALUE typ="str">MONDAY;TUESDAY;WEDNESDAY;THURSDAY;FRIDAY</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">Time</KEY>
-			<VALUE typ="str">8:00</VALUE>
-		</Event_Attribut>
-    <Event_Attribut>
-			<KEY typ="str">PUBLIC_HOLIDAY</KEY>
-			<VALUE typ="str">NO</VALUE>
-    </Event_Attribut>
-	</EVENT>
- 
- <EVENT>
- 		<Event_Attribut>
-			<KEY typ="str">Comment</KEY>
-			<VALUE typ="str">Ladestation mittags einschalten</VALUE>
+			<VALUE typ="str">Weihnachtsbaum an</VALUE>
 		</Event_Attribut>
 		<Event_Attribut>
 			<KEY typ="str">Event Type</KEY>
@@ -227,11 +135,11 @@
 		</Event_Attribut>
 		<Event_Attribut>
 			<KEY typ="str">Weekdays</KEY>
-			<VALUE typ="str">MONDAY;TUESDAY;WEDNESDAY;THURSDAY;FRIDAY;SUNDAY</VALUE>
+			<VALUE typ="str">MONDAY;TUESDAY;WEDNESDAY;THURSDAY;FRIDAY;SATURDAY;SUNDAY</VALUE>
 		</Event_Attribut>
 		<Event_Attribut>
 			<KEY typ="str">Time</KEY>
-			<VALUE typ="str">12:00</VALUE>
+			<VALUE typ="str">9:00</VALUE>
 		</Event_Attribut>
     <Event_Attribut>
 			<KEY typ="str">PUBLIC_HOLIDAY</KEY>
@@ -239,4 +147,34 @@
     </Event_Attribut>
 	</EVENT>
  
+ <EVENT>
+ 		<Event_Attribut>
+			<KEY typ="str">Comment</KEY>
+			<VALUE typ="str">Weihnachtsbaum abends an</VALUE>
+		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">Event Type</KEY>
+			<VALUE typ="str">SOCKET</VALUE>
+		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">SOCKET_NO</KEY>
+			<VALUE typ="str">A</VALUE>
+		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">SOCKET_SIGNAL</KEY>
+			<VALUE typ="str">ON</VALUE>
+		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">Weekdays</KEY>
+			<VALUE typ="str">MONDAY;TUESDAY;WEDNESDAY;THURSDAY;FRIDAY;SATURDAY;SUNDAY</VALUE>
+		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">Time</KEY>
+			<VALUE typ="str">20:00</VALUE>
+		</Event_Attribut>
+    <Event_Attribut>
+			<KEY typ="str">PUBLIC_HOLIDAY</KEY>
+			<VALUE typ="str">NO</VALUE>
+    </Event_Attribut>
+	</EVENT>
 </EVENT_LIST>

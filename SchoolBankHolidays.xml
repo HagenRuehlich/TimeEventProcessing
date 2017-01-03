@@ -21,8 +21,7 @@
 		</Entry_Attribut>
  		<Entry_Attribut>
 			<KEY typ="str">TYPE</KEY>
-			<VALUE typ="str">SCHOOL_HOLIDAYS</VALUE>
-		</Entry_Attribut>
+			<VALUE typ="str">SCHOOL_HOLIDAYS</VALUE> /Entry_Attribut>
 		<Entry_Attribut>
 			<KEY typ="str">PERIOD</KEY>
 			<VALUE typ="str">27.02.-03.03.</VALUE>
@@ -67,7 +66,7 @@
 		</Entry_Attribut>
 		<Entry_Attribut>
 			<KEY typ="str">PERIOD</KEY>
-			<VALUE typ="str">27.07.-09.09.</VALUE>
+			<VALUE typ="str">29.07.-11.09.</VALUE>
 		</Entry_Attribut>
 	</ENTRY>
 	<ENTRY>
@@ -81,7 +80,7 @@
 		</Entry_Attribut>
 		<Entry_Attribut>
 			<KEY typ="str">PERIOD</KEY>
-			<VALUE typ="str">30.10.-03.11.</VALUE>
+		 <VALUE typ="str">30.10.-03.11.</VALUE>
 		</Entry_Attribut>
 	</ENTRY>
  	<ENTRY>
@@ -95,7 +94,7 @@
 		</Entry_Attribut>
 		<Entry_Attribut>
 			<KEY typ="str">PERIOD</KEY>
-			<VALUE typ="str">22.12.-31.12.</VALUE>
+			<VALUE typ="str">21.12.-31.12.</VALUE>
 		</Entry_Attribut>
 	</ENTRY>
   <ENTRY>
@@ -109,7 +108,7 @@
 		</Entry_Attribut>
 		<Entry_Attribut>
 			<KEY typ="str">DATE</KEY>
-			<VALUE typ="str">25.03.</VALUE>
+			<VALUE typ="str">14.04.</VALUE>
 		</Entry_Attribut>
 	</ENTRY>
   <ENTRY>
@@ -123,7 +122,7 @@
 		</Entry_Attribut>
 		<Entry_Attribut>
 			<KEY typ="str">DATE</KEY>
-			<VALUE typ="str">28.03.</VALUE>
+			<VALUE typ="str">17.04.</VALUE>
 		</Entry_Attribut>
    </ENTRY>
    <ENTRY>
@@ -137,7 +136,7 @@
 		</Entry_Attribut>
 		<Entry_Attribut>
 			<KEY typ="str">DATE</KEY>
-			<VALUE typ="str">05.05.</VALUE>
+			<VALUE typ="str">25.05.</VALUE>
 		</Entry_Attribut>
 	</ENTRY>
   <ENTRY>
@@ -151,7 +150,7 @@
 		</Entry_Attribut>
 		<Entry_Attribut>
 			<KEY typ="str">DATE</KEY>
-			<VALUE typ="str">26.05.</VALUE>
+			<VALUE typ="str">15.06.</VALUE>
 		</Entry_Attribut>
 	</ENTRY>
   <ENTRY>

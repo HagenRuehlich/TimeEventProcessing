@@ -20,7 +20,11 @@ XML_PUBLIC_HOLIDAY      = "PUBLIC_HOLIDAY"
 XML_DATE                = "DATE"
 XML_PERIOD              = "PERIOD"
 
+<<<<<<< HEAD
 CURRENT_YEAR = 2017
+=======
+CURRENT_YEAR = 2016
+>>>>>>> origin/master
 
 
 
