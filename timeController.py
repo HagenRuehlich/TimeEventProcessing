@@ -36,8 +36,6 @@ def processEvents ():
 #"Produktionsminute" festhalten
     factMin = getMinute ()
     bIsHoliday = isTodayAHoliday()
-    logging.info ("Zurück nach : bIsHoliday = isTodayAHoliday()")
-    iCounter = 0
     while (not abbruch):
         events = evFact.getTimeEvents()
         aktuellerWochenTag = getWochenTag()
@@ -50,11 +48,6 @@ def processEvents ():
         aktuelleStunde = getStunde()
         timeSituation = CTimeSituation (aktuellerWochenTag,aktuelleStunde, aktuelleMinute, bIsHoliday)
         checkAndExecuteEventList (events , timeSituation)
-        iCounter += 1
-        #if ((iCounter%10) == 0):
-        #    sDurchlaufLog = "Durchlauf " + str(iCounter)
-        #logging.info (sDurchlaufLog)
-        logging.info (str(iCounter))
         time.sleep (5)
 
 def checkAndExecuteEventList (pListEvents, pTimeSituation) :
