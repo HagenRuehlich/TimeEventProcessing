@@ -60,7 +60,7 @@ class CXMLTimeEventFatory (CTimeEventFatory):
         """Diese Methode bewirkt dass die Factors Events produiert, hier geschiet das durch Einlesen einer XML Datei """
         self.readXMLFile()
         #Lesezeit speichern
-        _ReatTimeXML = datetime.datetime.now()
+        self._ReadTimeXML = datetime.datetime.now()
 
     def getTimeEvents (self):
         # Aktuelle Zeit ermitteln

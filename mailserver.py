@@ -6,12 +6,6 @@ from email.message import Message
 from mailAccount import csMAILUSER
 from mailAccount import csMAILPASSWORT
 
-# REMOVE THIS BEFORE COMMITTING!!!
-#-----------------------------------
-csMAILUSER = "hagen.ruehlich@gmx.de"
-csMAILPASSWORT = "h4OG5c3d1ge2x6N33oEE"
-
-#-----------------------------------
 
 
 class CMailServer () :
