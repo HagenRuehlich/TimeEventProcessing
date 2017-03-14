@@ -23,7 +23,7 @@
 		</Event_Attribut>
 		<Event_Attribut>
 			<KEY typ="str">Time</KEY>
-			<VALUE typ="str">6:00</VALUE>
+			<VALUE typ="str">5:45</VALUE>
 		</Event_Attribut>
     <Event_Attribut>
 			<KEY typ="str">PUBLIC_HOLIDAY</KEY>
@@ -113,6 +113,58 @@
 		<Event_Attribut>
 			<KEY typ="str">Time</KEY>
 			<VALUE typ="str">22:30</VALUE>
+		</Event_Attribut>
+	</EVENT>
+ <EVENT>
+		<Event_Attribut>
+			<KEY typ="str">Event Type</KEY>
+			<VALUE typ="str">SOCKET</VALUE>
+		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">SOCKET_NO</KEY>
+			<VALUE typ="str">A</VALUE>
+		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">SOCKET_SIGNAL</KEY>
+			<VALUE typ="str">OFF</VALUE>
+		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">Comment</KEY>
+			<VALUE typ="str">WLAN Repeater abschalten</VALUE>
+		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">Weekdays</KEY>
+			<VALUE typ="str">MONDAY;TUESDAY;WEDNESDAY;THURSDAY;FRIDAY;SATURDAY;SUNDAY</VALUE>
+		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">Time</KEY>
+			<VALUE typ="str">04:00</VALUE>
+		</Event_Attribut>
+	</EVENT>
+  <EVENT>
+ <Event_Attribut>
+			<KEY typ="str">Event Type</KEY>
+			<VALUE typ="str">SOCKET</VALUE>
+		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">SOCKET_NO</KEY>
+			<VALUE typ="str">A</VALUE>
+		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">SOCKET_SIGNAL</KEY>
+			<VALUE typ="str">ON</VALUE>
+		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">Comment</KEY>
+			<VALUE typ="str">WLAN Repeater anschalten</VALUE>
+		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">Weekdays</KEY>
+			<VALUE typ="str">MONDAY;TUESDAY;WEDNESDAY;THURSDAY;FRIDAY;SATURDAY;SUNDAY</VALUE>
+		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">Time</KEY>
+			<VALUE typ="str">04:02</VALUE>
 		</Event_Attribut>
 	</EVENT>
  </EVENT_LIST>
