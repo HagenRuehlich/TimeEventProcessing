@@ -6,6 +6,7 @@ from infrared import *
 
 IP_TV = "192.168.178.31"
 NAME_TV = "FernseherWohnzimmer"
+NAME_FRITZ_BOX = "fritz.box"
 
 class CNetWorkDevice ():
     def __init__(self, pName):

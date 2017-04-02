@@ -3,8 +3,11 @@ import logging
 import os
 import time
 import webbrowser
+import mailserver
+import enum
 from networkDevices import *
 from utilities import *
+from confidental import *
 
 
 SONNTAG    = 6
@@ -35,6 +38,17 @@ LINUX = "posix"
 WINDOWS = "nt"
 
 ANZAHL_FUNK_SIGNALE  = 5
+
+
+
+"""This enum is controlling email notification"""
+class CEMailNotificationSetting (enum.Enum):
+    No      = 0
+    Success = 1
+    Failure = 2
+    Always  = 3
+    
+
 
 
 def getWochenTagStr (iTag):
@@ -269,8 +283,45 @@ class CRadioSocketEvent (CTimeEvent):
         self.sentCommand (self.getComand () + parStr)
         if (self._Signal == SWITCH_ON):
             self.postSwitchOnAction ()
+        
            
-       
+"""Class for status checking of network devices"""
+class CNetworkDeviceStatusCheckEvent (CTimeEvent):
+    def __init__(self):
+        CTimeEvent.__init__(self)
+        self._sIP = ""
+        self._eMailNotifyMode = CEMailNotificationSetting.No
+        
+    def init (self, piWeekdays, piHours, piMinute, psIP, peMailNotifyMode):
+        self._sIP = psIP
+        self._eMailNotifyMode = peMailNotifyMode
+        CTimeEvent.init (self, piWeekdays, piHours, piMinute)
+      
+    def setIP (self, psIP):
+        self._sIP = psIP
+        
+    def action (self):
+        assert self._sIP in dIP_Name.keys ()
+        sNetDeviceName = dIP_Name [self._sIP]
+        oFritzBox = CNetWorkDevice (sNetDeviceName)
+        bRes = oFritzBox.ping()
+        if (bRes == False):
+            logging.info ( "Ping zu Netzwerkgerät " + sNetDeviceName + " nicht erfolgreich")
+            if (self._eMailNotifyMode == CEMailNotificationSetting.Failure or self._eMailNotifyMode == CEMailNotificationSetting.Always):
+                oMailServer = mailserver.CMailServer()
+                oMailServer.sendMail ("Ping zu Netzwerkgerät " + sNetDeviceName + " nicht erfolgreich", "Gesendet von Objekt der Klasse CNetworkDeviceStatusCheckEvent")
+        else:
+            logging.info ( "Ping zu Netzwerkgerät " + sNetDeviceName + " erfolgreich")
+            if (self._eMailNotifyMode == CEMailNotificationSetting.Success or self._eMailNotifyMode == CEMailNotificationSetting.Always):
+                oMailServer = mailserver.CMailServer ()
+                oMailServer.sendMail ("Ping zu Netzwerkgerät " + sNetDeviceName + " erfolgreich", "Gesendet von Objekt der Klasse CNetworkDeviceStatusCheckEvent")
+            
+            
+               
+                
+            
+        
+        
         
 #Klasse zum InfoScreen schalten
 class CInfoScreenEvent (CTimeEvent):

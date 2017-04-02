@@ -139,4 +139,4 @@ $RECYCLE.BIN/
 *.lnk
 
 # Explicit exclusions
-mailAccount.py
+confidental.py

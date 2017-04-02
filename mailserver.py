@@ -3,8 +3,8 @@
 
 from smtplib import SMTP
 from email.message import Message
-from mailAccount import csMAILUSER
-from mailAccount import csMAILPASSWORT
+from confidental import csMAILUSER
+from confidental import csMAILPASSWORT
 
 
 

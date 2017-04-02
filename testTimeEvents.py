@@ -1,8 +1,16 @@
 # -*- coding: utf-8 -*-
 import unittest
 from timeEventFactory import getEventFact
-import timeEventClasses
+from timeEventClasses import *
 from  timeController import *
+
+class CNetworkDeviceStatusCheckEventTest (unittest.TestCase):
+    def testNetworkDevice (self):
+        oEvent = CNetworkDeviceStatusCheckEvent ()
+        oEvent.init ([MONTAG], 20, 0, "192.168.178.1", CEMailNotificationSetting.Always)
+        oEvent.action()
+        
+        
 
 class CTimeControllerTest (unittest.TestCase):
     def testTimeController (self):
