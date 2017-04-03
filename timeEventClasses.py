@@ -299,6 +299,10 @@ class CNetworkDeviceStatusCheckEvent (CTimeEvent):
       
     def setIP (self, psIP):
         self._sIP = psIP
+
+    def setEmailNotifyMode (self, peMailNotifyMode):
+        self._eMailNotifyMode = peMailNotifyMode
+        
         
     def action (self):
         assert self._sIP in dIP_Name.keys ()

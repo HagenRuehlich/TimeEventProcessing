@@ -32,13 +32,13 @@ class CTimeControllerTest (unittest.TestCase):
     def getTestSituations (self) :
         listOfSituations = []
         #Event has to be executed
-        mondayMorining = CTimeSituation (0, 6, 0, False)
+        mondayMorining = CTimeSituation (0, 5, 45, False)
         listOfSituations.append (mondayMorining)
         #This event not: Sunday
         listOfSituations.append (CTimeSituation (6, 6, 0, False))
         #This event not: Holiday!
         listOfSituations.append (CTimeSituation (2, 6, 0, True))
-        #listOfSituations.append (CTimeSituation (6, 22, 30, False))
+        listOfSituations.append (CTimeSituation (0, 11, 35, False))
         #listOfSituations.append (CTimeSituation (4, 8, 0, False))
         #listOfSituations.append (CTimeSituation (4, 12, 0, False))
         return listOfSituations

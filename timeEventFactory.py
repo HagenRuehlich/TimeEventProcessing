@@ -19,12 +19,13 @@ XML_EVENT_TYPE          = "Event Type"
 XML_EVENT_ATTRIBUT      = "Event_Attribut"
 XML_EXECUTE_ON_HOLIDAY  = "PUBLIC_HOLIDAY"
 XML_URL                 = "URL"
-
+XML_IP                  = "IP"
+XML_EMAIL_NOTIFY_MODE   = "EMAIL_NOTIFY_MODE" 
 
 #--------------------
 
-def func():
-    return 1
+dEmailNotifyMode = {"NO" : CEMailNotificationSetting.No, "SUCCESS" : CEMailNotificationSetting.Success ,"FAILURE" : CEMailNotificationSetting.Failure, "ALWAYS" : CEMailNotificationSetting.Always}
+
 
 def getEventFact ():
     return CXMLTimeEventFatory ()
@@ -272,17 +273,17 @@ class CXMLTimeEventFatory (CTimeEventFatory):
        """ Setzt ein Dictionary in eine Eventobjekt um und fügt dieses in die Liste. ACHTUNG: wenn neue Eventtypen ver-
            arbeitet werden sollen, oder Attribute sich ändern, muss hier angepasst werden..."""
        eventType = pEventDict.get (XML_EVENT_TYPE)
-       assert ((eventType == "SOCKET") or (eventType == "SCREEN"))
-       #Das Siganl lesen, ein- oder ausschalten
-       sSignal = pEventDict.get (XML_SOCKET_SIGNAL)
-       #Sicherstellen dass das Siganl einen zulässigen Wert hat
-       assert sSignal in dSocketSignal.keys()
-       #in Integer konvertieren
-       iSignal = dSocketSignal [sSignal]
+       assert ((eventType == "SOCKET") or (eventType == "SCREEN") or (eventType == "NETWORKCHECK"))       
        #Time Event Objekt generieren und dessen Werte übernehmen...
        timeEventObj = self.generateTimeEventObjFromDict (pEventDict) 
        #Prüfen ob Socket Event...
        if eventType == "SOCKET":
+           #Das Siganl lesen, ein- oder ausschalten
+           sSignal = pEventDict.get (XML_SOCKET_SIGNAL)
+           #Sicherstellen dass das Siganl einen zulässigen Wert hat
+           assert sSignal in dSocketSignal.keys()
+           #in Integer konvertieren
+           iSignal = dSocketSignal [sSignal]
            sSocket = pEventDict.get (XML_SOCKET_KEY)
            #Sicherstellen dass ein zulässiger Wert für die Funksteckdosen ID gelesen wurde
            assert sSocket in dSocketName.keys ()
@@ -300,8 +301,17 @@ class CXMLTimeEventFatory (CTimeEventFatory):
            assert type (sUrl) == str
            screenEventObj.setUrl(sUrl)
            screenEventObj.copyFromTimeEvent (timeEventObj)
-       elif  eventType == "NETTEST":
-           netTestObj = CNetTestEvent ()
+           self._Events.append (screenEventObj)
+       elif  eventType == "NETWORKCHECK":
+           netTestObj = CNetworkDeviceStatusCheckEvent ()
+           sIP = pEventDict.get (XML_IP)
+           assert (sIP != "")
+           netTestObj.setIP (sIP)
+           sEmailNotifyMode = pEventDict.get (XML_EMAIL_NOTIFY_MODE)
+           assert sEmailNotifyMode in dEmailNotifyMode.keys ()
+           eEmailNotifyMode =  dEmailNotifyMode [sEmailNotifyMode]
+           netTestObj.setEmailNotifyMode (eEmailNotifyMode)
+           self._Events.append (netTestObj)
        else:
            raise ValueError
            
