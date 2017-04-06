@@ -3,6 +3,15 @@
 import logging
 import subprocess
 import sys
+import enum
+import os
+
+
+class COsType (enum.Enum):
+    UNKOWN = 0
+    LINUX  = 1
+    WINDOWS = 2
+
 
 def getDayFromString (psDate):
     """ Die Funktion erwartet eine String mit einer Datumangabe im Format
@@ -33,6 +42,19 @@ def getDayOrMonthFromString (psDate, piDayOrMonth):
     iReturn = int (sDateStrs [piDayOrMonth])
     return iReturn
         
+
+def getOsType ():
+    OS_LINUX = "posix"
+    OS_WINDOWS = "nt"
+    eReturn = COsType.UNKOWN
+    sType = os.name
+    if (sType == OS_LINUX) :
+        eReturn = COsType.LINUX
+    if (sType == OS_WINDOWS) :
+        eReturn = COsType.WINDOWS    
+    return eReturn
+    
+
     
 def reBoot ():
     command = "/usr/bin/sudo /sbin/shutdown -r now"        

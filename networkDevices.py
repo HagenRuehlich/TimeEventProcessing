@@ -3,6 +3,7 @@
 import os
 import time
 from infrared import *
+from utilities import *
 
 IP_TV = "192.168.178.31"
 NAME_TV = "FernseherWohnzimmer"
@@ -18,8 +19,15 @@ class CNetWorkDevice ():
         """tries to ping the device, returs true is sucessful otherwise false"""
         bResult = False
         #Check if the device answers a ping...
-        if os.system("ping -c 1 " + self._name) == 0:
-            bResult = True
+        eOsType = getOsType ()
+        if (eOsType == COsType.LINUX):
+            if os.system("ping -c 1 " + self._name) == 0:
+                bResult = True
+        elif (eOsType == COsType.WINDOWS):
+            if os.system("ping " + self._name) == 0:
+                bResult = True
+        else:
+            assert False
         return bResult
 
 class CTVdevice (CNetWorkDevice):    
