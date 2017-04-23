@@ -24,7 +24,7 @@ XML_EMAIL_NOTIFY_MODE   = "EMAIL_NOTIFY_MODE"
 
 #--------------------
 
-dEmailNotifyMode = {"NO" : CEMailNotificationSetting.No, "SUCCESS" : CEMailNotificationSetting.Success ,"FAILURE" : CEMailNotificationSetting.Failure, "ALWAYS" : CEMailNotificationSetting.Always}
+dEmailNotifyMode = {"NO" : EMAIL_NOTIFY_No, "SUCCESS" : EMAIL_NOTIFY_Success ,"FAILURE" : EMAIL_NOTIFY_Failure, "ALWAYS" : EMAIL_NOTIFY_Always}
 
 
 def getEventFact ():

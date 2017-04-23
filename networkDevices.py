@@ -20,14 +20,14 @@ class CNetWorkDevice ():
         bResult = False
         #Check if the device answers a ping...
         eOsType = getOsType ()
-        if (eOsType == COsType.LINUX):
+        if (eOsType == OS_LINUX):
             if os.system("ping -c 1 " + self._name) == 0:
                 bResult = True
-        elif (eOsType == COsType.WINDOWS):
+        elif (eOsType == OS_WINDOWS):
             if os.system("ping " + self._name) == 0:
                 bResult = True
         else:
-            assert False
+            raise OSError
         return bResult
 
 class CTVdevice (CNetWorkDevice):    

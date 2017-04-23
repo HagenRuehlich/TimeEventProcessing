@@ -3,14 +3,12 @@
 import logging
 import subprocess
 import sys
-import enum
 import os
 
 
-class COsType (enum.Enum):
-    UNKOWN = 0
-    LINUX  = 1
-    WINDOWS = 2
+OS_UNKOWN = 0
+OS_LINUX  = 1
+OS_WINDOWS = 2
 
 
 def getDayFromString (psDate):
@@ -44,14 +42,14 @@ def getDayOrMonthFromString (psDate, piDayOrMonth):
         
 
 def getOsType ():
-    OS_LINUX = "posix"
-    OS_WINDOWS = "nt"
-    eReturn = COsType.UNKOWN
+    OS_LINUX_ = "posix"
+    OS_WINDOWS_ = "nt"
+    eReturn = OS_UNKOWN
     sType = os.name
-    if (sType == OS_LINUX) :
-        eReturn = COsType.LINUX
-    if (sType == OS_WINDOWS) :
-        eReturn = COsType.WINDOWS    
+    if (sType == OS_LINUX_) :
+        eReturn = OS_LINUX
+    if (sType == OS_WINDOWS_) :
+        eReturn = OS_WINDOWS    
     return eReturn
     
 
@@ -63,7 +61,13 @@ def reBoot ():
     print (output)
 
 def initLogger ():
-    logfilename = '/var/log/TimeEvents.log'
+    osType= getOsType()
+    if (osType == OS_LINUX):
+        logfilename = '/var/log/TimeEvents.log'
+    elif (osType == OS_WINDOWS):
+        logfilename = 'TimeEvents.log'
+    else:
+        raise OSError
     logging.basicConfig(filename=logfilename, level=logging.DEBUG,
                           format="%(asctime)s [%(levelname)-8s] [%(module)s:%(funcName)s]: %(message)s",
                           datefmt="%d.%m.%Y %H:%M:%S")

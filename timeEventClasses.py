@@ -4,7 +4,6 @@ import os
 import time
 import webbrowser
 import mailserver
-import enum
 from networkDevices import *
 from utilities import *
 from confidental import *
@@ -39,12 +38,11 @@ ANZAHL_FUNK_SIGNALE  = 5
 
 
 
-"""This enum is controlling email notification"""
-class CEMailNotificationSetting (enum.Enum):
-    No      = 0
-    Success = 1
-    Failure = 2
-    Always  = 3
+"""This consts are for controlling email notification"""
+EMAIL_NOTIFY_No         = 0
+EMAIL_NOTIFY_Success    = 1
+EMAIL_NOTIFY_Failure    = 2
+EMAIL_NOTIFY_Always     = 3
     
 
 
@@ -287,7 +285,7 @@ class CNetworkDeviceStatusCheckEvent (CTimeEvent):
     def __init__(self):
         CTimeEvent.__init__(self)
         self._sIP = ""
-        self._eMailNotifyMode = CEMailNotificationSetting.No
+        self._eMailNotifyMode = EMAIL_NOTIFY_No
         
     def init (self, piWeekdays, piHours, piMinute, psIP, peMailNotifyMode):
         self._sIP = psIP
@@ -308,12 +306,12 @@ class CNetworkDeviceStatusCheckEvent (CTimeEvent):
         bRes = oFritzBox.ping()
         if (bRes == False):
             logging.info ( "Ping zu Netzwerkgerät " + sNetDeviceName + " nicht erfolgreich")
-            if (self._eMailNotifyMode == CEMailNotificationSetting.Failure or self._eMailNotifyMode == CEMailNotificationSetting.Always):
+            if (self._eMailNotifyMode == EMAIL_NOTIFY_Failure or self._eMailNotifyMode == EMAIL_NOTIFY_Always):
                 oMailServer = mailserver.CMailServer()
                 oMailServer.sendMail ("Ping zu Netzwerkgerät " + sNetDeviceName + " nicht erfolgreich", "Gesendet von Objekt der Klasse CNetworkDeviceStatusCheckEvent")
         else:
             logging.info ( "Ping zu Netzwerkgerät " + sNetDeviceName + " erfolgreich")
-            if (self._eMailNotifyMode == CEMailNotificationSetting.Success or self._eMailNotifyMode == CEMailNotificationSetting.Always):
+            if (self._eMailNotifyMode == EMAIL_NOTIFY_Success or self._eMailNotifyMode == EMAIL_NOTIFY_Always):
                 oMailServer = mailserver.CMailServer ()
                 oMailServer.sendMail ("Ping zu Netzwerkgerät " + sNetDeviceName + " erfolgreich", "Gesendet von Objekt der Klasse CNetworkDeviceStatusCheckEvent")
             
