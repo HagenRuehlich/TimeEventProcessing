@@ -263,7 +263,7 @@ class CRadioSocketEvent (CTimeEvent):
 
     def sentCommand (self, command):
         logging.info ("Send command " + command)
-        if (getOsType () == COsType.LINUX):
+        if (getOsType () == OS_LINUX):
             for i in range (1, ANZAHL_FUNK_SIGNALE, 1):
                 os.system (command)
                 logging.info ( "Sendebefehl abgesetzt")

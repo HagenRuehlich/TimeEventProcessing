@@ -7,7 +7,7 @@ from  timeController import *
 class CNetworkDeviceStatusCheckEventTest (unittest.TestCase):
     def testNetworkDevice (self):
         oEvent = CNetworkDeviceStatusCheckEvent ()
-        oEvent.init ([MONTAG], 20, 0, "192.168.178.1", CEMailNotificationSetting.Always)
+        oEvent.init ([MONTAG], 20, 0, "192.168.178.1", EMAIL_NOTIFY_Always)
         oEvent.action()
         
         
