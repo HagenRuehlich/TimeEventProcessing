@@ -4,11 +4,11 @@ from timeEventFactory import getEventFact
 from timeEventClasses import *
 from  timeController import *
 
-class CNetworkDeviceStatusCheckEventTest (unittest.TestCase):
-    def testNetworkDevice (self):
-        oEvent = CNetworkDeviceStatusCheckEvent ()
-        oEvent.init ([MONTAG], 20, 0, "192.168.178.1", EMAIL_NOTIFY_Always)
-        oEvent.action()
+##class CNetworkDeviceStatusCheckEventTest (unittest.TestCase):
+##    def testNetworkDevice (self):
+##        oEvent = CNetworkDeviceStatusCheckEvent ()
+##        oEvent.init ([MONTAG], 20, 0, "192.168.178.1", EMAIL_NOTIFY_Always)
+##        oEvent.action()
         
         
 
@@ -32,12 +32,12 @@ class CTimeControllerTest (unittest.TestCase):
     def getTestSituations (self) :
         listOfSituations = []
         #Event has to be executed
-        mondayMorining = CTimeSituation (0, 5, 45, False)
-        listOfSituations.append (mondayMorining)
+##        mondayMorining = CTimeSituation (0, 5, 45, False)
+##        listOfSituations.append (mondayMorining)
         #This event not: Sunday
-        listOfSituations.append (CTimeSituation (6, 6, 0, False))
+##        listOfSituations.append (CTimeSituation (6, 6, 0, False))
         #This event not: Holiday!
-        listOfSituations.append (CTimeSituation (2, 6, 0, True))
+##        listOfSituations.append (CTimeSituation (2, 6, 0, True))
         listOfSituations.append (CTimeSituation (0, 11, 35, False))
         #listOfSituations.append (CTimeSituation (4, 8, 0, False))
         #listOfSituations.append (CTimeSituation (4, 12, 0, False))

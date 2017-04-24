@@ -311,6 +311,7 @@ class CXMLTimeEventFatory (CTimeEventFatory):
            assert sEmailNotifyMode in dEmailNotifyMode.keys ()
            eEmailNotifyMode =  dEmailNotifyMode [sEmailNotifyMode]
            netTestObj.setEmailNotifyMode (eEmailNotifyMode)
+           netTestObj.copyFromTimeEvent (timeEventObj)
            self._Events.append (netTestObj)
        else:
            raise ValueError
