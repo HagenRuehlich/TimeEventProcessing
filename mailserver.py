@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-
+import logging
 from smtplib import SMTP
 from email.message import Message
 from confidental import csMAILUSER
@@ -11,13 +11,21 @@ from confidental import csMAILPASSWORT
 class CMailServer () :
     """this class provides mails services"""
     def __init__(self):
-        """the conctructor establishes the connection ()"""
-        self._smtp = SMTP ()
-        self.initiateConncection ()
+        self._bIsInitiated = True
+        try:
+            """the conctructor establishes the connection ()"""
+            self._smtp = SMTP ()
+            self.initiateConncection ()
+        except:
+            self._bIsInitiated = False
+            logging.error ("Mailserver initialization failed")
+            
+            
         
         
     def __del__ (self):
-        self._smtp.quit ()
+        if self._bIsInitiated == True :
+            self._smtp.quit ()
 
 
     def initiateConncection (self):
@@ -28,12 +36,13 @@ class CMailServer () :
 
 
     def sendMail (self, psSubject, psMailText):
-        msg = Message ()
-        msg.set_payload (psMailText)
-        msg["Subject"] = psSubject
-        msg ["From"]= "Raspberry Pi Hagen Rühlich <raspberryPi.ruehlich@gmx.de>"
-        msg ["To"] = "Hagen Rühlich" + "<" + csMAILUSER + ">" 
-        self._smtp.sendmail ("Raspberry Pi Hagen Rühlich <raspberryPi.ruehlich@gmx.de>","Hagen Rühlich" + "<" + csMAILUSER + ">", msg.as_string())
+        if self._bIsInitiated == True :
+            msg = Message ()
+            msg.set_payload (psMailText)
+            msg["Subject"] = psSubject
+            msg ["From"]= "Raspberry Pi Hagen Rühlich <raspberryPi.ruehlich@gmx.de>"
+            msg ["To"] = "Hagen Rühlich" + "<" + csMAILUSER + ">"
+            self._smtp.sendmail ("Raspberry Pi Hagen Rühlich <raspberryPi.ruehlich@gmx.de>","Hagen Rühlich" + "<" + csMAILUSER + ">", msg.as_string())
 
 
 
