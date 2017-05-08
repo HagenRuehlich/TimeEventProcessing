@@ -193,6 +193,32 @@
 			<VALUE typ="str">01:00</VALUE>
 		</Event_Attribut>
 	</EVENT>
+<EVENT>
+ <Event_Attribut>
+			<KEY typ="str">Event Type</KEY>
+			<VALUE typ="str">NETWORKCHECK</VALUE>
+		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">IP</KEY>
+			<VALUE typ="str">192.168.178.1</VALUE>
+		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">EMAIL_NOTIFY_MODE</KEY>
+			<VALUE typ="str">NO</VALUE>
+		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">Comment</KEY>
+			<VALUE typ="str">Powerline Adapter durch pingen der Firtzbox prüfen</VALUE>
+		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">Weekdays</KEY>
+			<VALUE typ="str">MONDAY;TUESDAY;WEDNESDAY;THURSDAY;FRIDAY;SATURDAY;SUNDAY</VALUE>
+		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">Time</KEY>
+			<VALUE typ="str">09:00</VALUE>
+		</Event_Attribut>
+	</EVENT> 
  <EVENT>
  <Event_Attribut>
 			<KEY typ="str">Event Type</KEY>
@@ -216,7 +242,85 @@
 		</Event_Attribut>
 		<Event_Attribut>
 			<KEY typ="str">Time</KEY>
-			<VALUE typ="str">11:35</VALUE>
+			<VALUE typ="str">12:00</VALUE>
 		</Event_Attribut>
 	</EVENT>
+ <EVENT>
+ <Event_Attribut>
+			<KEY typ="str">Event Type</KEY>
+			<VALUE typ="str">NETWORKCHECK</VALUE>
+		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">IP</KEY>
+			<VALUE typ="str">192.168.178.1</VALUE>
+		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">EMAIL_NOTIFY_MODE</KEY>
+			<VALUE typ="str">ALWAYS</VALUE>
+		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">Comment</KEY>
+			<VALUE typ="str">Powerline Adapter durch pingen der Firtzbox prüfen</VALUE>
+		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">Weekdays</KEY>
+			<VALUE typ="str">MONDAY;TUESDAY;WEDNESDAY;THURSDAY;FRIDAY;SATURDAY;SUNDAY</VALUE>
+		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">Time</KEY>
+			<VALUE typ="str">15:00</VALUE>
+		</Event_Attribut>
+	</EVENT> 
+  <EVENT>
+ <Event_Attribut>
+			<KEY typ="str">Event Type</KEY>
+			<VALUE typ="str">NETWORKCHECK</VALUE>
+		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">IP</KEY>
+			<VALUE typ="str">192.168.178.1</VALUE>
+		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">EMAIL_NOTIFY_MODE</KEY>
+			<VALUE typ="str">ALWAYS</VALUE>
+		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">Comment</KEY>
+			<VALUE typ="str">Powerline Adapter durch pingen der Firtzbox prüfen</VALUE>
+		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">Weekdays</KEY>
+			<VALUE typ="str">MONDAY;TUESDAY;WEDNESDAY;THURSDAY;FRIDAY;SATURDAY;SUNDAY</VALUE>
+		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">Time</KEY>
+			<VALUE typ="str">18:00</VALUE>
+		</Event_Attribut>
+	</EVENT>
+<EVENT> 
+ <Event_Attribut>
+			<KEY typ="str">Event Type</KEY>
+			<VALUE typ="str">NETWORKCHECK</VALUE>
+		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">IP</KEY>
+			<VALUE typ="str">192.168.178.1</VALUE>
+		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">EMAIL_NOTIFY_MODE</KEY>
+			<VALUE typ="str">ALWAYS</VALUE>
+		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">Comment</KEY>
+			<VALUE typ="str">Powerline Adapter durch pingen der Firtzbox prüfen</VALUE>
+		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">Weekdays</KEY>
+			<VALUE typ="str">MONDAY;TUESDAY;WEDNESDAY;THURSDAY;FRIDAY;SATURDAY;SUNDAY</VALUE>
+		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">Time</KEY>
+			<VALUE typ="str">21:00</VALUE>
+		</Event_Attribut>
+	</EVENT>    
  </EVENT_LIST>
