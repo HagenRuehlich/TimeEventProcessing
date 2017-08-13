@@ -27,7 +27,7 @@
 		</Event_Attribut>
     <Event_Attribut>
 			<KEY typ="str">PUBLIC_HOLIDAY</KEY>
-			<VALUE typ="str">NO</VALUE>
+			<VALUE typ="str">YES</VALUE>
 		</Event_Attribut>
 	</EVENT>
 
@@ -58,7 +58,7 @@
 		</Event_Attribut>
     <Event_Attribut>
 			<KEY typ="str">PUBLIC_HOLIDAY</KEY>
-			<VALUE typ="str">NO</VALUE>
+			<VALUE typ="str">YES</VALUE>
     </Event_Attribut>  
 	</EVENT>
  
@@ -87,6 +87,10 @@
 			<KEY typ="str">Time</KEY>
 			<VALUE typ="str">20:00</VALUE>
 		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">PUBLIC_HOLIDAY</KEY>
+			<VALUE typ="str">YES</VALUE>
+		</Event_Attribut>
 	</EVENT>
  
  	<EVENT>
@@ -114,6 +118,10 @@
 			<KEY typ="str">Time</KEY>
 			<VALUE typ="str">22:30</VALUE>
 		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">PUBLIC_HOLIDAY</KEY>
+			<VALUE typ="str">YES</VALUE>
+		</Event_Attribut>
 	</EVENT>
  <EVENT>
 		<Event_Attribut>
@@ -139,6 +147,10 @@
 		<Event_Attribut>
 			<KEY typ="str">Time</KEY>
 			<VALUE typ="str">04:00</VALUE>
+		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">PUBLIC_HOLIDAY</KEY>
+			<VALUE typ="str">YES</VALUE>
 		</Event_Attribut>
 	</EVENT>
   <EVENT>
@@ -166,6 +178,10 @@
 			<KEY typ="str">Time</KEY>
 			<VALUE typ="str">04:02</VALUE>
 		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">PUBLIC_HOLIDAY</KEY>
+			<VALUE typ="str">YES</VALUE>
+		</Event_Attribut>
 	</EVENT>
   <EVENT>
  <Event_Attribut>
@@ -191,6 +207,10 @@
 		<Event_Attribut>
 			<KEY typ="str">Time</KEY>
 			<VALUE typ="str">01:00</VALUE>
+		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">PUBLIC_HOLIDAY</KEY>
+			<VALUE typ="str">YES</VALUE>
 		</Event_Attribut>
 	</EVENT>
 <EVENT>
@@ -218,6 +238,10 @@
 			<KEY typ="str">Time</KEY>
 			<VALUE typ="str">09:00</VALUE>
 		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">PUBLIC_HOLIDAY</KEY>
+			<VALUE typ="str">YES</VALUE>
+		</Event_Attribut>
 	</EVENT> 
  <EVENT>
  <Event_Attribut>
@@ -244,7 +268,12 @@
 			<KEY typ="str">Time</KEY>
 			<VALUE typ="str">12:00</VALUE>
 		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">PUBLIC_HOLIDAY</KEY>
+			<VALUE typ="str">YES</VALUE>
+		</Event_Attribut>
 	</EVENT>
+	
  <EVENT>
  <Event_Attribut>
 			<KEY typ="str">Event Type</KEY>
@@ -269,6 +298,10 @@
 		<Event_Attribut>
 			<KEY typ="str">Time</KEY>
 			<VALUE typ="str">15:00</VALUE>
+		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">PUBLIC_HOLIDAY</KEY>
+			<VALUE typ="str">YES</VALUE>
 		</Event_Attribut>
 	</EVENT> 
   <EVENT>
@@ -296,6 +329,10 @@
 			<KEY typ="str">Time</KEY>
 			<VALUE typ="str">18:00</VALUE>
 		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">PUBLIC_HOLIDAY</KEY>
+			<VALUE typ="str">YES</VALUE>
+		</Event_Attribut>
 	</EVENT>
 <EVENT> 
  <Event_Attribut>
@@ -321,6 +358,10 @@
 		<Event_Attribut>
 			<KEY typ="str">Time</KEY>
 			<VALUE typ="str">21:00</VALUE>
+		</Event_Attribut>
+		<Event_Attribut>
+			<KEY typ="str">PUBLIC_HOLIDAY</KEY>
+			<VALUE typ="str">YES</VALUE>
 		</Event_Attribut>
 	</EVENT>    
  </EVENT_LIST>
