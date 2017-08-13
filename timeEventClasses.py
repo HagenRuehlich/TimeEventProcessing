@@ -139,6 +139,7 @@ class CTimeEvent (CTimeEventInterface):
         self._Weekdays = pTimeEvent.getWeekdays()
         self._Hour = pTimeEvent.getHour ()
         self._Minute = pTimeEvent.getMinute ()
+        self._ExecuteOnHoliday= pTimeEvent.executeOnHoliday ()
     
 
     def reset (self):
