@@ -3,8 +3,34 @@
 import logging
 from smtplib import SMTP
 from email.message import Message
-from confidental import csMAILUSER
-from confidental import csMAILPASSWORT
+from confidental import *
+
+
+
+class CMailFromHagen ():
+    """Represet a mail sent from Hagens account... """
+    def __init__ (self, plReceivers, psSubject, psMailText):
+        assert type (plReceivers) == list
+        assert type (psSubject)   == str
+        assert type (psMailText)  == str    
+        self._lReceivers = plReceivers
+        self._sSubject = psSubject
+        #_sMailText suuports plain ASCII only
+        try:
+            testStr= psMailText.encode ('ascii')
+        except:
+            logging.critical("Mail text contains non ACSII characters")
+        self._sMailText = psMailText
+
+    def getReceivers (self) :
+        return self._lReceivers
+
+    def getSubject (self):
+        return self._sSubject
+
+    def getMailText (self):
+        return self._sMailText
+        
 
 
 
@@ -34,21 +60,37 @@ class CMailServer () :
         self._smtp.starttls()
         self._smtp.login (csMAILUSER, csMAILPASSWORT)
 
-
-    def sendMail (self, psSubject, psMailText):
+        
+    def sendMail (self, pMail):
+        assert type (pMail) == CMailFromHagen
         if self._bIsInitiated == True :
             msg = Message ()
-            msg.set_payload (psMailText)
-            msg["Subject"] = psSubject
+            msg.set_payload (pMail.getMailText())
+            msg ["Subject"] = pMail.getSubject ()
             msg ["From"]= "Raspberry Pi Hagen Rühlich <raspberryPi.ruehlich@gmx.de>"
-            msg ["To"] = "Hagen Rühlich" + "<" + csMAILUSER + ">"
-            self._smtp.sendmail ("Raspberry Pi Hagen Rühlich <raspberryPi.ruehlich@gmx.de>","Hagen Rühlich" + "<" + csMAILUSER + ">", msg.as_string())
+            receivers = pMail.getReceivers ()
+            
+            for res in receivers:
+                self._smtp.sendmail ("Raspberry Pi Hagen Rühlich <raspberryPi.ruehlich@gmx.de>", res, msg.as_string())
+            
+    
+
+##    def sendMail (self, psSubject, psMailText):
+##        if self._bIsInitiated == True :
+##            msg = Message ()
+##            msg.set_payload (psMailText)
+##            msg["Subject"] = psSubject
+##            msg ["From"]= "Raspberry Pi Hagen Rühlich <raspberryPi.ruehlich@gmx.de>"
+##            msg ["To"] = "Hagen Rühlich" + "<" + csMAILUSER + ">"
+##            self._smtp.sendmail ("Raspberry Pi Hagen Rühlich <raspberryPi.ruehlich@gmx.de>","Hagen Rühlich" + "<" + csMAILUSER + ">", msg.as_string())
 
 
 
 def mailTest ():
+    receivers = [csMAIL_ADRESS_KATHRIN, csMAIL_ADRESS_HAGEN]
+    msg = CMailFromHagen (receivers, "Testnachricht von Hagens Raspberry Pi",  "Das ist nur eine Testnachricht. Danke für Dein Verstaendnis.  Beste Grusse von Hagen")
     server = CMailServer ()
-    server.sendMail ("Test Nachricht", "Hagens Raspberry Pi sendet dieses Test Nachricht")
+    server.sendMail (msg)
 
 
 
