@@ -210,6 +210,41 @@
  -		</Event_Attribut>		
  -		<Event_Attribut>		
  -			<KEY typ="str">Time</KEY>		
+ -			<VALUE typ="str">06:30</VALUE>		
+ -		</Event_Attribut>		
+ -		<Event_Attribut>		
+ -			<KEY typ="str">PUBLIC_HOLIDAY</KEY>		
+ -			<VALUE typ="str">YES</VALUE>		
+ -	</Event_Attribut>		
+ -</EVENT> 
+ 
+  <EVENT>		
+    <Event_Attribut>		
+ -			<KEY typ="str">Event Type</KEY>		
+ -			<VALUE typ="str">NETWORKCHECK</VALUE>		
+ -		</Event_Attribut>		
+ -		<Event_Attribut>		
+ -			<KEY typ="str">IP</KEY>		
+ -			<VALUE typ="str">AirQualitySensor</VALUE>		
+ -		</Event_Attribut>		
+ -		<Event_Attribut>		
+ -			<KEY typ="str">EMAIL_NOTIFY_MODE</KEY>		
+ -			<VALUE typ="str">NO</VALUE>		
+ -		</Event_Attribut>
+      <Event_Attribut>		
+ -			<KEY typ="str">EMAIL_RECEIVERS</KEY>		
+ -			<VALUE typ="str">OLLI;HAGEN;PAUL</VALUE>		
+ -		</Event_Attribut>		
+ -		<Event_Attribut>		
+ -			<KEY typ="str">Comment</KEY>		
+ -			<VALUE typ="str">Sent notification if Air quality sensor is NOT working</VALUE>		
+ -		</Event_Attribut>		
+ -		<Event_Attribut>		
+ -			<KEY typ="str">Weekdays</KEY>		
+ -			<VALUE typ="str">MONDAY;TUESDAY;WEDNESDAY;THURSDAY;FRIDAY;SATURDAY;SUNDAY</VALUE>		
+ -		</Event_Attribut>		
+ -		<Event_Attribut>		
+ -			<KEY typ="str">Time</KEY>		
  -			<VALUE typ="str">19:50</VALUE>		
  -		</Event_Attribut>		
  -		<Event_Attribut>		
