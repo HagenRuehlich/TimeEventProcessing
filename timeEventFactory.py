@@ -7,7 +7,7 @@ import os.path
 from xmlbase import *
 from timeEventClasses import *
 
-#------ KONSTANTEN
+#------ CONSTS
 XML_EVENT_FILE          = "events.xml"
 XML_EVENT_TAG           = "EVENT"
 XML_SOCKET_KEY          = "SOCKET_NO"
@@ -20,7 +20,8 @@ XML_EVENT_ATTRIBUT      = "Event_Attribut"
 XML_EXECUTE_ON_HOLIDAY  = "PUBLIC_HOLIDAY"
 XML_URL                 = "URL"
 XML_IP                  = "IP"
-XML_EMAIL_NOTIFY_MODE   = "EMAIL_NOTIFY_MODE" 
+XML_EMAIL_NOTIFY_MODE   = "EMAIL_NOTIFY_MODE"
+XML_EMAIL_RECEIVERS     = "EMAIL_RECEIVERS"
 
 #--------------------
 
@@ -217,6 +218,7 @@ class CXMLTimeEventFatory (CTimeEventFatory):
             
     def generateTimeEventObjFromDict (self, pEventDict):
         """ Generiert ein Time Event Objekt auf Basis des übergebenenen Dictionary und gibt das neue Objekt zurück """
+        assert type (pEventDict) == dict
         # Den Event kommentar auslesen
         sComment = pEventDict.get (XML_COMMENT, "")
         assert sComment != ""
@@ -272,6 +274,7 @@ class CXMLTimeEventFatory (CTimeEventFatory):
     def generateEventObjFromDict (self, pEventDict):
        """ Setzt ein Dictionary in eine Eventobjekt um und fügt dieses in die Liste. ACHTUNG: wenn neue Eventtypen ver-
            arbeitet werden sollen, oder Attribute sich ändern, muss hier angepasst werden..."""
+       assert type (pEventDict) == dict
        eventType = pEventDict.get (XML_EVENT_TYPE)
        assert ((eventType == "SOCKET") or (eventType == "SCREEN") or (eventType == "NETWORKCHECK"))       
        #Time Event Objekt generieren und dessen Werte übernehmen...
@@ -303,14 +306,8 @@ class CXMLTimeEventFatory (CTimeEventFatory):
            screenEventObj.copyFromTimeEvent (timeEventObj)
            self._Events.append (screenEventObj)
        elif  eventType == "NETWORKCHECK":
-           netTestObj = CNetworkDeviceStatusCheckEvent ()
-           sIP = pEventDict.get (XML_IP)
-           assert (sIP != "")
-           netTestObj.setIP (sIP)
-           sEmailNotifyMode = pEventDict.get (XML_EMAIL_NOTIFY_MODE)
-           assert sEmailNotifyMode in dEmailNotifyMode.keys ()
-           eEmailNotifyMode =  dEmailNotifyMode [sEmailNotifyMode]
-           netTestObj.setEmailNotifyMode (eEmailNotifyMode)
+           netTestObj = self.generateNetworkCheckEvent (pEventDict)
+           assert type (netTestObj) == CNetworkDeviceStatusCheckEvent
            netTestObj.copyFromTimeEvent (timeEventObj)
            self._Events.append (netTestObj)
        else:
@@ -318,7 +315,27 @@ class CXMLTimeEventFatory (CTimeEventFatory):
            
            
            
-        
+    def generateNetworkCheckEvent (self, pEventDict):
+        """creates an returns an object representing a networks check. Object attributes will be set based on values in pEventDict """
+        assert type (pEventDict) == dict
+        netTestObj = CNetworkDeviceStatusCheckEvent ()
+        sIP = pEventDict.get (XML_IP)
+        assert (sIP != "")
+        netTestObj.setIP (sIP)
+        sEmailNotifyMode = pEventDict.get (XML_EMAIL_NOTIFY_MODE)
+        assert sEmailNotifyMode in dEmailNotifyMode.keys ()
+        eEmailNotifyMode =  dEmailNotifyMode [sEmailNotifyMode]
+        netTestObj.setEmailNotifyMode (eEmailNotifyMode)
+        sReceivers = pEventDict.get (XML_EMAIL_RECEIVERS)
+        assert type (sReceivers) == str
+        #Splitt into single receivers
+        lReceiverList = sReceivers.split (";")
+        assert type (lReceiverList) == list
+        for sSingleReceiver in lReceiverList:
+            assert sSingleReceiver in dName_MailAdress.keys ()
+            sMailAdress = dName_MailAdress [sSingleReceiver]
+            netTestObj.addMailReceiver (sMailAdress)
+        return netTestObj
 
         
        
