@@ -194,7 +194,7 @@
  -		</Event_Attribut>		
  -		<Event_Attribut>		
  -			<KEY typ="str">EMAIL_NOTIFY_MODE</KEY>		
- -			<VALUE typ="str">NO</VALUE>		
+ -			<VALUE typ="str">FAILURE</VALUE>		
  -		</Event_Attribut>
       <Event_Attribut>		
  -			<KEY typ="str">EMAIL_RECEIVERS</KEY>		
@@ -229,7 +229,7 @@
  -		</Event_Attribut>		
  -		<Event_Attribut>		
  -			<KEY typ="str">EMAIL_NOTIFY_MODE</KEY>		
- -			<VALUE typ="str">NO</VALUE>		
+ -			<VALUE typ="str">FAILURE</VALUE>		
  -		</Event_Attribut>
       <Event_Attribut>		
  -			<KEY typ="str">EMAIL_RECEIVERS</KEY>		
@@ -245,7 +245,7 @@
  -		</Event_Attribut>		
  -		<Event_Attribut>		
  -			<KEY typ="str">Time</KEY>		
- -			<VALUE typ="str">19:50</VALUE>		
+ -			<VALUE typ="str">19:03</VALUE>		
  -		</Event_Attribut>		
  -		<Event_Attribut>		
  -			<KEY typ="str">PUBLIC_HOLIDAY</KEY>		
