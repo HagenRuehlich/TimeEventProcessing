@@ -217,8 +217,9 @@ class CXMLTimeEventFatory (CTimeEventFatory):
             
             
     def generateTimeEventObjFromDict (self, pEventDict):
-        """ Generiert ein Time Event Objekt auf Basis des übergebenenen Dictionary und gibt das neue Objekt zurück """
+        """ Generates a list of Time Events basing on the dictionary pEventDict """
         assert type (pEventDict) == dict
+        lTimeEventList = []
         # Den Event kommentar auslesen
         sComment = pEventDict.get (XML_COMMENT, "")
         assert sComment != ""
@@ -233,38 +234,42 @@ class CXMLTimeEventFatory (CTimeEventFatory):
             if sWeekDayStr.find (sWeekDay) != -1:
                 aWeekDays.append (iWeekDay)
         #Uhrzeit auslesen und in Stunden und Minuten dekodieren
-        sTime = ""        
-        sTime =  pEventDict.get(XML_TIME, "")
-        assert sTime != ""
-        assert sTime.find (":") != -1
-        #Den String über seine "Wörter" und den Separator ":" teilen
-        sTimes = sTime.split (":")
-        assert len (sTimes) == 2
-        if sTimes [0] == "00":
-            iHour = 0
-        else:    
-            iHour = int (sTimes [0])
-        if sTimes [1] == "00":
-            iMinute = 0
-        else:
-            try:
-                iMinute = int (sTimes [1])
-            except ValueError:
-                logging.critical ("Integerkonvertierung fehlgeschlagen, Minuten-Angabe unzulässig: " + sTimes [1])
+        sTimeStatements = ""        
+        sTimeStatements =  pEventDict.get(XML_TIME, "")
+        assert sTimeStatements != ""
+        #It it possible that more than one time specification were made, they have to be sparated by ";"
+        sSingleTimes = sTimeStatements.split (";")
+        for sSingleTime in sSingleTimes :
+            assert sSingleTime.find (":") != -1
+            #Den String über seine "Wörter" und den Separator ":" teilen
+            sTimes = sSingleTime.split (":")
+            assert len (sTimes) == 2
+            if sTimes [0] == "00":
+                iHour = 0
+            else:    
+                iHour = int (sTimes [0])
+            if sTimes [1] == "00":
                 iMinute = 0
-        oTimeEvent = CTimeEvent ()
-        oTimeEvent.init (aWeekDays, iHour, iMinute)
-        oTimeEvent.setComment (sComment)
-        #Attribute "Ausführen an Feiertagen dekodieren
-        bExeOnHoliday = False
-        sExeOnHoliday = pEventDict.get (XML_EXECUTE_ON_HOLIDAY, "")
-        if sExeOnHoliday != "" :
-            if sExeOnHoliday in dBool.keys():
-                bExeOnHoliday = dBool [sExeOnHoliday]
-                oTimeEvent.SetExeOnHoliday (bExeOnHoliday)
             else:
-                logging.error ("Zulässiger Wert für Feiertagsausführung " + sExeOnHoliday)
-        return oTimeEvent
+                try:
+                    iMinute = int (sTimes [1])
+                except ValueError:
+                    logging.critical ("Integerkonvertierung fehlgeschlagen, Minuten-Angabe unzulässig: " + sTimes [1])
+                    iMinute = 0
+            oTimeEvent = CTimeEvent ()
+            oTimeEvent.init (aWeekDays, iHour, iMinute)
+            oTimeEvent.setComment (sComment)
+            #Attribute "Ausführen an Feiertagen dekodieren
+            bExeOnHoliday = False
+            sExeOnHoliday = pEventDict.get (XML_EXECUTE_ON_HOLIDAY, "")
+            if sExeOnHoliday != "" :
+                if sExeOnHoliday in dBool.keys():
+                    bExeOnHoliday = dBool [sExeOnHoliday]
+                    oTimeEvent.SetExeOnHoliday (bExeOnHoliday)
+                else:
+                    logging.error ("Zulässiger Wert für Feiertagsausführung " + sExeOnHoliday)
+            lTimeEventList.append (oTimeEvent)
+        return lTimeEventList
         
         
         
@@ -277,41 +282,44 @@ class CXMLTimeEventFatory (CTimeEventFatory):
        assert type (pEventDict) == dict
        eventType = pEventDict.get (XML_EVENT_TYPE)
        assert ((eventType == "SOCKET") or (eventType == "SCREEN") or (eventType == "NETWORKCHECK"))       
-       #Time Event Objekt generieren und dessen Werte übernehmen...
-       timeEventObj = self.generateTimeEventObjFromDict (pEventDict) 
-       #Prüfen ob Socket Event...
-       if eventType == "SOCKET":
-           #Das Siganl lesen, ein- oder ausschalten
-           sSignal = pEventDict.get (XML_SOCKET_SIGNAL)
-           #Sicherstellen dass das Siganl einen zulässigen Wert hat
-           assert sSignal in dSocketSignal.keys()
-           #in Integer konvertieren
-           iSignal = dSocketSignal [sSignal]
-           sSocket = pEventDict.get (XML_SOCKET_KEY)
-           #Sicherstellen dass ein zulässiger Wert für die Funksteckdosen ID gelesen wurde
-           assert sSocket in dSocketName.keys ()
-           #in "Signalstring" konvertieren
-           sSocketSigStr = dSocketName [str (sSocket)]           
-           socketEventObj = CRadioSocketEvent ()
-           socketEventObj.setSocket (sSocketSigStr)
-           socketEventObj.setSignal (iSignal)
-           socketEventObj.copyFromTimeEvent (timeEventObj)
-           self._Events.append (socketEventObj)
-       elif  eventType == "SCREEN":
-           screenEventObj = CInfoScreenEvent ()
-           screenEventObj.setSignal (iSignal)
-           sUrl = pEventDict.get (XML_URL)
-           assert type (sUrl) == str
-           screenEventObj.setUrl(sUrl)
-           screenEventObj.copyFromTimeEvent (timeEventObj)
-           self._Events.append (screenEventObj)
-       elif  eventType == "NETWORKCHECK":
-           netTestObj = self.generateNetworkCheckEvent (pEventDict)
-           assert type (netTestObj) == CNetworkDeviceStatusCheckEvent
-           netTestObj.copyFromTimeEvent (timeEventObj)
-           self._Events.append (netTestObj)
-       else:
-           raise ValueError
+       #Note in the XML struture several time specifictions per time event are supported, but not in these Python objects
+       #so for each time specification in XML a deciated Python object has to be generated
+       lTimeEventObj = self.generateTimeEventObjFromDict (pEventDict)
+       assert type (lTimeEventObj) == list
+       for timeEventObj in lTimeEventObj:
+           #Prüfen ob Socket Event...
+           if eventType == "SOCKET":
+               #Das Siganl lesen, ein- oder ausschalten
+               sSignal = pEventDict.get (XML_SOCKET_SIGNAL)
+               #Sicherstellen dass das Siganl einen zulässigen Wert hat
+               assert sSignal in dSocketSignal.keys()
+               #in Integer konvertieren
+               iSignal = dSocketSignal [sSignal]
+               sSocket = pEventDict.get (XML_SOCKET_KEY)
+               #Sicherstellen dass ein zulässiger Wert für die Funksteckdosen ID gelesen wurde
+               assert sSocket in dSocketName.keys ()
+               #in "Signalstring" konvertieren
+               sSocketSigStr = dSocketName [str (sSocket)]           
+               socketEventObj = CRadioSocketEvent ()
+               socketEventObj.setSocket (sSocketSigStr)
+               socketEventObj.setSignal (iSignal)
+               socketEventObj.copyFromTimeEvent (timeEventObj)
+               self._Events.append (socketEventObj)
+           elif  eventType == "SCREEN":
+               screenEventObj = CInfoScreenEvent ()
+               screenEventObj.setSignal (iSignal)
+               sUrl = pEventDict.get (XML_URL)
+               assert type (sUrl) == str
+               screenEventObj.setUrl(sUrl)
+               screenEventObj.copyFromTimeEvent (timeEventObj)
+               self._Events.append (screenEventObj)
+           elif  eventType == "NETWORKCHECK":
+               netTestObj = self.generateNetworkCheckEvent (pEventDict)
+               assert type (netTestObj) == CNetworkDeviceStatusCheckEvent
+               netTestObj.copyFromTimeEvent (timeEventObj)
+               self._Events.append (netTestObj)
+           else:
+               raise ValueError
            
            
            
