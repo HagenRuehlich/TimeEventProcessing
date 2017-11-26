@@ -310,18 +310,25 @@ class CNetworkDeviceStatusCheckEvent (CTimeEvent):
         oMailServer = CMailServer()
         msg = CMailFromHagen (self._mailReceivers, psSubject, psMailText)
         oMailServer.sendMail (msg)
+
+
+    def pingTest (self) :
+        """ exceutes a simple ping command to the device represented by this object, return True if successful otherwise False... """
+        bRes = False
+        assert self._sIP in dIP_Name.keys ()
+        #No IPs required here, devive name doesn't require constant IPs...
+        sNetDeviceName = dIP_Name [self._sIP]
+        oDevice = CNetWorkDevice (sNetDeviceName)
+        bRes = oDevice.ping()
+        return bRes
             
             
         
         
         
     def action (self):
-        assert self._sIP in dIP_Name.keys ()
-        #No IPs required here, devive name doesn't require constant IPs...
-        sNetDeviceName = dIP_Name [self._sIP]
-        oDevice = CNetWorkDevice (sNetDeviceName)
-        bRes = oDevice.ping()
-        if (bRes == False):
+        bResPing = self.pingTest ()
+        if (bResPing == False):
             logging.info ( "Ping zu Netzwerkgerät " + sNetDeviceName + " nicht erfolgreich")
             if (self._eMailNotifyMode == EMAIL_NOTIFY_Failure or self._eMailNotifyMode == EMAIL_NOTIFY_Always):
                 self.sendMail ("Ping zu Netzwerkgerät " + sNetDeviceName + " nicht erfolgreich", "Gesendet von Objekt der Klasse CNetworkDeviceStatusCheckEvent")
@@ -332,7 +339,18 @@ class CNetworkDeviceStatusCheckEvent (CTimeEvent):
                 
             
             
-               
+class CAirQualitySensorCheck (CNetworkDeviceStatusCheckEvent) :
+    """  This class represents a check of of the Air quality sensor by enhancinging e.g the notifiction of CNetworkDeviceStatusCheckEvent by sensor specific information """
+    def __init__(self):
+        CNetworkDeviceStatusCheckEvent.__init__(self)
+
+    def action (self):
+        bResPing = self.pingTest ()
+        oSensor = CAirQualitySensor ()
+        bRes = oSensor.measure ()
+        
+        
+        
                 
             
         
@@ -412,5 +430,15 @@ class CInfoScreenEvent (CTimeEvent):
             #self.stopInfoScreen ()
             
             
-            
+class CMessureAirEvent (CTimeEvent):
+    """  Represent an Air Quality Messurement Event """
+    def __init__(self):
+        def __init__(self):      
+        CTimeEvent.__init__(self)
+        self._Type = "SCREEN"
+        self._Signal = ""
+        self._Url = ""
+
+    def init (self, weekdays, hour, minute):    
+        CTimeEvent.init (self, weekdays, hour, minute)
         
