@@ -4,19 +4,22 @@ import urllib.request
 import re
 from networkDevices import *
 
+PM25  = 0
+PM100 = 1
 
-#PM10  = 0
-#PM2.5 = 1
 
 class CAirQualitySensor(CNetWorkDevice):
     """Diese Klasse stellt Basisdienste für das Lesen von XML Dateien
     zur Verfügung"""
     def __init__(self):
         CNetWorkDevice.__init__(self, "Feinstaubsensor")
+        self._currentValues = [0.0, 0.0]
+        
 
-    def getCurrentValues (self):
+    def measure (self):
         """Returns the current PM2.5 and PM10 values"""
         req = urllib.request.Request ("http://192.168.178.86/values")
+        bRes = False
         f= urllib.request.urlopen (req)
         byteHTML = f.read ()
         f.close()
@@ -28,6 +31,15 @@ class CAirQualitySensor(CNetWorkDevice):
             assert (iCheck == 1)
             sProcessStr= m.group(0)
             #sProcessStr should now look like: <td>PM2.5</td><td class='r'>5.3&nbsp
+            sSplittedStr1 = sProcessStr.rsplit ("&")
+            sSplittedStr2 = sSplittedStr1 [0].rsplit (">")
+            #The last sub string represents the value...
+            sValue = sSplittedStr2 [len (sSplittedStr2) - 1]
+            if (sValue != ""): 
+                
+            value = float ()
+        return bRes    
+            
             
             
 
