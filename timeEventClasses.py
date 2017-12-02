@@ -7,6 +7,7 @@ from mailserver import *
 from networkDevices import *
 from utilities import *
 from confidental import *
+from airqualitysensor import * 
 
 
 SONNTAG    = 6
@@ -310,18 +311,25 @@ class CNetworkDeviceStatusCheckEvent (CTimeEvent):
         oMailServer = CMailServer()
         msg = CMailFromHagen (self._mailReceivers, psSubject, psMailText)
         oMailServer.sendMail (msg)
+
+
+    def pingTest (self) :
+        """ exceutes a simple ping command to the device represented by this object, return True if successful otherwise False... """
+        bRes = False
+        assert self._sIP in dIP_Name.keys ()
+        #No IPs required here, devive name doesn't require constant IPs...
+        sNetDeviceName = dIP_Name [self._sIP]
+        oDevice = CNetWorkDevice (sNetDeviceName)
+        bRes = oDevice.ping()
+        return bRes
             
             
         
         
         
     def action (self):
-        assert self._sIP in dIP_Name.keys ()
-        #No IPs required here, devive name doesn't require constant IPs...
-        sNetDeviceName = dIP_Name [self._sIP]
-        oDevice = CNetWorkDevice (sNetDeviceName)
-        bRes = oDevice.ping()
-        if (bRes == False):
+        bResPing = self.pingTest ()
+        if (bResPing == False):
             logging.info ( "Ping zu Netzwerkgerät " + sNetDeviceName + " nicht erfolgreich")
             if (self._eMailNotifyMode == EMAIL_NOTIFY_Failure or self._eMailNotifyMode == EMAIL_NOTIFY_Always):
                 self.sendMail ("Ping zu Netzwerkgerät " + sNetDeviceName + " nicht erfolgreich", "Gesendet von Objekt der Klasse CNetworkDeviceStatusCheckEvent")
@@ -332,7 +340,48 @@ class CNetworkDeviceStatusCheckEvent (CTimeEvent):
                 
             
             
-               
+class CAirQualitySensorCheck (CNetworkDeviceStatusCheckEvent) :
+    """  This class represents a check of of the Air quality sensor by enhancinging e.g the notifiction of CNetworkDeviceStatusCheckEvent by sensor specific information """
+    def __init__(self):
+        CNetworkDeviceStatusCheckEvent.__init__(self)
+
+    def action (self):
+        bResPing = self.pingTest ()
+        sSubject = ""
+        sMailText = ""
+        if bResPing == True:
+            oSensor = CAirQualitySensor ()
+            bResMeasure = oSensor.measure ()
+            if  bResMeasure == True:
+                #means: ping was successul, values could be read...
+                fValues = oSensor.getLastestResults ()
+                #for debugging only
+                assert type (fValues) == list
+                assert len (fValues) == 2
+                sSubject = "Test Feinstaubsensor erfolgreich!"
+                sMailText = "Aktuelle Messwerte: PM2.5 = " + str (fValues[PM25]) + "; PM10 = " + str (fValues[PM100])
+                if (self._eMailNotifyMode == EMAIL_NOTIFY_Success or self._eMailNotifyMode == EMAIL_NOTIFY_Always):
+                    self.sendMail (sSubject, sMailText)
+            else:
+                #ping was sucessfull, but no values could be read...
+                sSubject = "Test Feinstaubsensor nicht erfolgreich!"
+                sMailText = "Feinstaubsensor im Netz erreichbar, aber keine Messwerte verfügbar"
+                if (self._eMailNotifyMode == EMAIL_NOTIFY_Failure or self._eMailNotifyMode == EMAIL_NOTIFY_Always):
+                    self.sendMail (sSubject, sMailText)
+        else:
+            #Feinstaubsensor didn't answer the ping
+            sSubject = "Test Feinstaubsensor nicht erfolgreich!"
+            sMailText = "Feinstaubsensor konnte im Netz nicht erreicht werden"
+            if (self._eMailNotifyMode == EMAIL_NOTIFY_Failure or self._eMailNotifyMode == EMAIL_NOTIFY_Always):
+                    self.sendMail (sSubject, sMailText)
+            
+                
+                                                                  
+                
+        
+        
+        
+        
                 
             
         
@@ -412,5 +461,28 @@ class CInfoScreenEvent (CTimeEvent):
             #self.stopInfoScreen ()
             
             
-            
+class CMessureAirEvent (CTimeEvent):
+    """  Represent an Air Quality Messurement Event """
+    def __init__(self):
+        CTimeEvent.__init__(self)
         
+
+    def init (self, weekdays, hour, minute):    
+        CTimeEvent.init (self, weekdays, hour, minute)
+
+    def action (self):
+        oSensor = CAirQualitySensor ()
+        bResMeasure = oSensor.measure ()
+        if not bResMeasure :
+            logging.error ("Air quality sensor did'nt returen values!")
+        
+        
+        
+if __name__ == "__main__":
+    oSensorCheckEvent = CAirQualitySensorCheck ()
+    oSensorCheckEvent.setIP ("AirQualitySensor")
+    oSensorCheckEvent.setEmailNotifyMode (EMAIL_NOTIFY_Always)
+    oSensorCheckEvent.addMailReceiver (dName_MailAdress ["HAGEN"])
+    oSensorCheckEvent.addMailReceiver (dName_MailAdress ["OLLI"])
+    oSensorCheckEvent.action()
+    

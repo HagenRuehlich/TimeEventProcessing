@@ -281,7 +281,7 @@ class CXMLTimeEventFatory (CTimeEventFatory):
            arbeitet werden sollen, oder Attribute sich ändern, muss hier angepasst werden..."""
        assert type (pEventDict) == dict
        eventType = pEventDict.get (XML_EVENT_TYPE)
-       assert ((eventType == "SOCKET") or (eventType == "SCREEN") or (eventType == "NETWORKCHECK"))       
+       assert ((eventType == "SOCKET") or (eventType == "SCREEN") or (eventType == "NETWORKCHECK") or (eventType == "AIRQUALITY_SENSOR_CHECK"))       
        #Note in the XML struture several time specifictions per time event are supported, but not in these Python objects
        #so for each time specification in XML a deciated Python object has to be generated
        lTimeEventObj = self.generateTimeEventObjFromDict (pEventDict)
@@ -318,22 +318,43 @@ class CXMLTimeEventFatory (CTimeEventFatory):
                assert type (netTestObj) == CNetworkDeviceStatusCheckEvent
                netTestObj.copyFromTimeEvent (timeEventObj)
                self._Events.append (netTestObj)
+           elif eventType ==  "AIRQUALITY_SENSOR_CHECK":
+               airQualitySensorCheckEvent = self.generateAirQualitySensorCheckEvent (pEventDict)
+               assert type (airQualitySensorCheckEvent) == CAirQualitySensorCheck
+               airQualitySensorCheckEvent.copyFromTimeEvent (timeEventObj)
+               self._Events.append (airQualitySensorCheckEvent)
            else:
                raise ValueError
            
            
            
     def generateNetworkCheckEvent (self, pEventDict):
-        """creates an returns an object representing a networks check. Object attributes will be set based on values in pEventDict """
+        """creates and returns an object representing a networks check. Object attributes will be set based on values in pEventDict """
         assert type (pEventDict) == dict
         netTestObj = CNetworkDeviceStatusCheckEvent ()
+        self.generateNetworkCheckEventDerivate (netTestObj, pEventDict)
+        return netTestObj
+        
+
+    def generateAirQualitySensorCheckEvent (self, pEventDict):
+        """ creates and returns an object CAirQualitySensorCheck. Object attributes will be set based on values in pEventDict """
+        assert type (pEventDict) == dict
+        airQualitySensorCheckEvent = CAirQualitySensorCheck ()
+        self.generateNetworkCheckEventDerivate (airQualitySensorCheckEvent, pEventDict)
+        return airQualitySensorCheckEvent
+        
+
+    def generateNetworkCheckEventDerivate (self, poNetWorkCheckEvent, pEventDict) :
+        """ read value for CNetworkDeviceStatusCheckEvent objects and object of its sub classes from pEventDict and set these values to poNetWorkCheckEvent """
+        assert type (pEventDict) == dict
+        assert isinstance (poNetWorkCheckEvent, CNetworkDeviceStatusCheckEvent)
         sIP = pEventDict.get (XML_IP)
         assert (sIP != "")
-        netTestObj.setIP (sIP)
+        poNetWorkCheckEvent.setIP (sIP)
         sEmailNotifyMode = pEventDict.get (XML_EMAIL_NOTIFY_MODE)
         assert sEmailNotifyMode in dEmailNotifyMode.keys ()
         eEmailNotifyMode =  dEmailNotifyMode [sEmailNotifyMode]
-        netTestObj.setEmailNotifyMode (eEmailNotifyMode)
+        poNetWorkCheckEvent.setEmailNotifyMode (eEmailNotifyMode)
         sReceivers = pEventDict.get (XML_EMAIL_RECEIVERS)
         assert type (sReceivers) == str
         #Splitt into single receivers
@@ -342,8 +363,9 @@ class CXMLTimeEventFatory (CTimeEventFatory):
         for sSingleReceiver in lReceiverList:
             assert sSingleReceiver in dName_MailAdress.keys ()
             sMailAdress = dName_MailAdress [sSingleReceiver]
-            netTestObj.addMailReceiver (sMailAdress)
-        return netTestObj
+            poNetWorkCheckEvent.addMailReceiver (sMailAdress)
+        return poNetWorkCheckEvent
+
 
         
        

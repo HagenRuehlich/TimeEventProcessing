@@ -224,7 +224,7 @@
  <EVENT>
   <Event_Attribut>		
  -			<KEY typ="str">Event Type</KEY>		
- -			<VALUE typ="str">NETWORKCHECK</VALUE>		
+ -			<VALUE typ="str">AIRQUALITY_SENSOR_CHECK</VALUE>		
  -		</Event_Attribut>		
  -		<Event_Attribut>		
  -			<KEY typ="str">IP</KEY>		
@@ -248,7 +248,7 @@
  -		</Event_Attribut>		
  -		<Event_Attribut>		
  -			<KEY typ="str">Time</KEY>		
- -			<VALUE typ="str">11:40</VALUE>		
+ -			<VALUE typ="str">12:28</VALUE>		
  -		</Event_Attribut>		
  -		<Event_Attribut>		
  -			<KEY typ="str">PUBLIC_HOLIDAY</KEY>		
