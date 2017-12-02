@@ -7,6 +7,7 @@ from mailserver import *
 from networkDevices import *
 from utilities import *
 from confidental import *
+from airqualitysensor import * 
 
 
 SONNTAG    = 6
@@ -354,7 +355,8 @@ class CAirQualitySensorCheck (CNetworkDeviceStatusCheckEvent) :
             if  bResMeasure == True:
                 #means: ping was successul, values could be read...
                 fValues = oSensor.getLastestResults ()
-                assert type (fValues) == tupel
+                #for debugging only
+                assert type (fValues) == list
                 assert len (fValues) == 2
                 sSubject = "Test Feinstaubsensor erfolgreich!"
                 sMailText = "Aktuelle Messwerte: PM2.5 = " + str (fValues[PM25]) + "; PM10 = " + str (fValues[PM100])
@@ -363,7 +365,7 @@ class CAirQualitySensorCheck (CNetworkDeviceStatusCheckEvent) :
             else:
                 #ping was sucessfull, but no values could be read...
                 sSubject = "Test Feinstaubsensor nicht erfolgreich!"
-                sMailText = "Feinstaubsensor im Netz erreichbar, aber keine Messwerte verfügbar")
+                sMailText = "Feinstaubsensor im Netz erreichbar, aber keine Messwerte verfügbar"
                 if (self._eMailNotifyMode == EMAIL_NOTIFY_Failure or self._eMailNotifyMode == EMAIL_NOTIFY_Always):
                     self.sendMail (sSubject, sMailText)
         else:
@@ -462,7 +464,6 @@ class CInfoScreenEvent (CTimeEvent):
 class CMessureAirEvent (CTimeEvent):
     """  Represent an Air Quality Messurement Event """
     def __init__(self):
-        def __init__(self):      
         CTimeEvent.__init__(self)
         
 
@@ -477,3 +478,11 @@ class CMessureAirEvent (CTimeEvent):
         
         
         
+if __name__ == "__main__":
+    oSensorCheckEvent = CAirQualitySensorCheck ()
+    oSensorCheckEvent.setIP ("AirQualitySensor")
+    oSensorCheckEvent.setEmailNotifyMode (EMAIL_NOTIFY_Always)
+    oSensorCheckEvent.addMailReceiver (dName_MailAdress ["HAGEN"])
+    oSensorCheckEvent.addMailReceiver (dName_MailAdress ["OLLI"])
+    oSensorCheckEvent.action()
+    
