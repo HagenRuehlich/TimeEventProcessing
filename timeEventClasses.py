@@ -329,6 +329,7 @@ class CNetworkDeviceStatusCheckEvent (CTimeEvent):
         
     def action (self):
         bResPing = self.pingTest ()
+        sNetDeviceName = dIP_Name [self._sIP]
         if (bResPing == False):
             logging.info ( "Ping zu Netzwerkgerät " + sNetDeviceName + " nicht erfolgreich")
             if (self._eMailNotifyMode == EMAIL_NOTIFY_Failure or self._eMailNotifyMode == EMAIL_NOTIFY_Always):
@@ -479,6 +480,9 @@ class CMessureAirEvent (CTimeEvent):
         
         
 if __name__ == "__main__":
+    oNetworkCheckEvent = CNetworkDeviceStatusCheckEvent ()
+    oNetworkCheckEvent.setIP ("AirQualitySensor")
+    oNetworkCheckEvent.action()
     oSensorCheckEvent = CAirQualitySensorCheck ()
     oSensorCheckEvent.setIP ("AirQualitySensor")
     oSensorCheckEvent.setEmailNotifyMode (EMAIL_NOTIFY_Always)
