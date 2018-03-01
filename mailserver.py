@@ -37,14 +37,21 @@ class CMailFromHagen ():
 class CMailServer () :
     """this class provides mails services"""
     def __init__(self):
-        self._bIsInitiated = True
+        self._bIsInitiated = False
         try:
             """the conctructor establishes the connection ()"""
             self._smtp = SMTP ()
             self.initiateConncection ()
+        except (OSError) as e :
+            logging.error (e.args [0])          
+            
         except:
-            self._bIsInitiated = False
             logging.error ("Mailserver initialization failed")
+        else:
+            self._bIsInitiated = True  # Else branch means : no exception occured
+            
+            
+        
             
             
         
