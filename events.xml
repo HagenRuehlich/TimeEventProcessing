@@ -1,193 +1,194 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <EVENT_LIST>
-	<EVENT>
-		<Event_Attribut>
+  <EVENT>
+    <Event_Attribut>
       <KEY typ="str">Comment</KEY>
-			<VALUE typ="str">Schranklicht jeden Wochentags morgen anschalten</VALUE> 	
-		</Event_Attribut>
- 		<Event_Attribut>
-			<KEY typ="str">Event Type</KEY>
-			<VALUE typ="str">SOCKET</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">SOCKET_NO</KEY>
-			<VALUE typ="str">C</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">SOCKET_SIGNAL</KEY>
-			<VALUE typ="str">ON</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">Weekdays</KEY>
-			<VALUE typ="str">MONDAY;TUESDAY;WEDNESDAY;THURSDAY;FRIDAY</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">Time</KEY>
-			<VALUE typ="str">5:45</VALUE>
-		</Event_Attribut>
+      <VALUE typ="str">Schranklicht jeden Wochentags morgen anschalten</VALUE>
+    </Event_Attribut>
     <Event_Attribut>
-			<KEY typ="str">PUBLIC_HOLIDAY</KEY>
-			<VALUE typ="str">YES</VALUE>
-		</Event_Attribut>
-	</EVENT>
-
-	<EVENT>
-		<Event_Attribut>
-			<KEY typ="str">Event Type</KEY>
-			<VALUE typ="str">SOCKET</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">SOCKET_NO</KEY>
-			<VALUE typ="str">C</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">SOCKET_SIGNAL</KEY>
-			<VALUE typ="str">OFF</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">Comment</KEY>
-			<VALUE typ="str">Schranklicht jeden morgen abschalten</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">Weekdays</KEY>
-			<VALUE typ="str">MONDAY;TUESDAY;WEDNESDAY;THURSDAY;FRIDAY</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">Time</KEY>
-			<VALUE typ="str">7:10</VALUE>
-		</Event_Attribut>
+      <KEY typ="str">Event Type</KEY>
+      <VALUE typ="str">SOCKET</VALUE>
+    </Event_Attribut>
     <Event_Attribut>
-			<KEY typ="str">PUBLIC_HOLIDAY</KEY>
-			<VALUE typ="str">YES</VALUE>
-    </Event_Attribut>  
-	</EVENT>
- 
- 	<EVENT>
-		<Event_Attribut>
-			<KEY typ="str">Event Type</KEY>
-			<VALUE typ="str">SOCKET</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">SOCKET_NO</KEY>
-			<VALUE typ="str">C</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">SOCKET_SIGNAL</KEY>
-			<VALUE typ="str">ON</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">Comment</KEY>
-			<VALUE typ="str">Schranklicht jeden Abend anschalten</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">Weekdays</KEY>
-			<VALUE typ="str">MONDAY;TUESDAY;WEDNESDAY;THURSDAY;FRIDAY;SATURDAY;SUNDAY</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">Time</KEY>
-			<VALUE typ="str">20:00</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">PUBLIC_HOLIDAY</KEY>
-			<VALUE typ="str">YES</VALUE>
-		</Event_Attribut>
-	</EVENT>
- 
- 	<EVENT>
-		<Event_Attribut>
-			<KEY typ="str">Event Type</KEY>
-			<VALUE typ="str">SOCKET</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">SOCKET_NO</KEY>
-			<VALUE typ="str">C</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">SOCKET_SIGNAL</KEY>
-			<VALUE typ="str">OFF</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">Comment</KEY>
-			<VALUE typ="str">Schranklicht jeden Abend abschalten</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">Weekdays</KEY>
-			<VALUE typ="str">MONDAY;TUESDAY;WEDNESDAY;THURSDAY;FRIDAY;SATURDAY;SUNDAY</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">Time</KEY>
-			<VALUE typ="str">22:30</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">PUBLIC_HOLIDAY</KEY>
-			<VALUE typ="str">YES</VALUE>
-		</Event_Attribut>
-	</EVENT>
- <EVENT>
-		<Event_Attribut>
-			<KEY typ="str">Event Type</KEY>
-			<VALUE typ="str">SOCKET</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">SOCKET_NO</KEY>
-			<VALUE typ="str">A</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">SOCKET_SIGNAL</KEY>
-			<VALUE typ="str">OFF</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">Comment</KEY>
-			<VALUE typ="str">WLAN Repeater abschalten</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">Weekdays</KEY>
-			<VALUE typ="str">MONDAY;TUESDAY;WEDNESDAY;THURSDAY;FRIDAY;SATURDAY;SUNDAY</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">Time</KEY>
-			<VALUE typ="str">04:00</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">PUBLIC_HOLIDAY</KEY>
-			<VALUE typ="str">YES</VALUE>
-		</Event_Attribut>
-	</EVENT>
+      <KEY typ="str">SOCKET_NO</KEY>
+      <VALUE typ="str">C</VALUE>
+    </Event_Attribut>
+    <Event_Attribut>
+      <KEY typ="str">SOCKET_SIGNAL</KEY>
+      <VALUE typ="str">ON</VALUE>
+    </Event_Attribut>
+    <Event_Attribut>
+      <KEY typ="str">Weekdays</KEY>
+      <VALUE typ="str">MONDAY;TUESDAY;WEDNESDAY;THURSDAY;FRIDAY</VALUE>
+    </Event_Attribut>
+    <Event_Attribut>
+      <KEY typ="str">Time</KEY>
+      <VALUE typ="str">5:45</VALUE>
+    </Event_Attribut>
+    <Event_Attribut>
+      <KEY typ="str">PUBLIC_HOLIDAY</KEY>
+      <VALUE typ="str">YES</VALUE>
+    </Event_Attribut>
+    <Event_Attribut>
+      <KEY typ="str">ATTENDEES</KEY>
+      <VALUE type="str">HAGEN;KATHRIN</VALUE>
+    </Event_Attribut>
+  </EVENT>
   <EVENT>
- <Event_Attribut>
-			<KEY typ="str">Event Type</KEY>
-			<VALUE typ="str">SOCKET</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">SOCKET_NO</KEY>
-			<VALUE typ="str">A</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">SOCKET_SIGNAL</KEY>
-			<VALUE typ="str">ON</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">Comment</KEY>
-			<VALUE typ="str">WLAN Repeater anschalten</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">Weekdays</KEY>
-			<VALUE typ="str">MONDAY;TUESDAY;WEDNESDAY;THURSDAY;FRIDAY;SATURDAY;SUNDAY</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">Time</KEY>
-			<VALUE typ="str">04:02</VALUE>
-		</Event_Attribut>
-		<Event_Attribut>
-			<KEY typ="str">PUBLIC_HOLIDAY</KEY>
-			<VALUE typ="str">YES</VALUE>
-		</Event_Attribut>
-	</EVENT>
+    <Event_Attribut>
+      <KEY typ="str">Event Type</KEY>
+      <VALUE typ="str">SOCKET</VALUE>
+    </Event_Attribut>
+    <Event_Attribut>
+      <KEY typ="str">SOCKET_NO</KEY>
+      <VALUE typ="str">C</VALUE>
+    </Event_Attribut>
+    <Event_Attribut>
+      <KEY typ="str">SOCKET_SIGNAL</KEY>
+      <VALUE typ="str">OFF</VALUE>
+    </Event_Attribut>
+    <Event_Attribut>
+      <KEY typ="str">Comment</KEY>
+      <VALUE typ="str">Schranklicht jeden morgen abschalten</VALUE>
+    </Event_Attribut>
+    <Event_Attribut>
+      <KEY typ="str">Weekdays</KEY>
+      <VALUE typ="str">MONDAY;TUESDAY;WEDNESDAY;THURSDAY;FRIDAY</VALUE>
+    </Event_Attribut>
+    <Event_Attribut>
+      <KEY typ="str">Time</KEY>
+      <VALUE typ="str">7:10</VALUE>
+    </Event_Attribut>
+    <Event_Attribut>
+      <KEY typ="str">PUBLIC_HOLIDAY</KEY>
+      <VALUE typ="str">YES</VALUE>
+    </Event_Attribut>
+  </EVENT>
   <EVENT>
-     <Event_Attribut>
-			<KEY typ="str">Comment</KEY>
-			<VALUE typ="str">Check if Air quality sensor is running, sent mail if not</VALUE>
-		</Event_Attribut>		
+    <Event_Attribut>
+      <KEY typ="str">Event Type</KEY>
+      <VALUE typ="str">SOCKET</VALUE>
+    </Event_Attribut>
+    <Event_Attribut>
+      <KEY typ="str">SOCKET_NO</KEY>
+      <VALUE typ="str">C</VALUE>
+    </Event_Attribut>
+    <Event_Attribut>
+      <KEY typ="str">SOCKET_SIGNAL</KEY>
+      <VALUE typ="str">ON</VALUE>
+    </Event_Attribut>
+    <Event_Attribut>
+      <KEY typ="str">Comment</KEY>
+      <VALUE typ="str">Schranklicht jeden Abend anschalten</VALUE>
+    </Event_Attribut>
+    <Event_Attribut>
+      <KEY typ="str">Weekdays</KEY>
+      <VALUE typ="str">MONDAY;TUESDAY;WEDNESDAY;THURSDAY;FRIDAY;SATURDAY;SUNDAY</VALUE>
+    </Event_Attribut>
+    <Event_Attribut>
+      <KEY typ="str">Time</KEY>
+      <VALUE typ="str">20:00</VALUE>
+    </Event_Attribut>
+    <Event_Attribut>
+      <KEY typ="str">PUBLIC_HOLIDAY</KEY>
+      <VALUE typ="str">YES</VALUE>
+    </Event_Attribut>
+  </EVENT>
+  <EVENT>
+    <Event_Attribut>
+      <KEY typ="str">Event Type</KEY>
+      <VALUE typ="str">SOCKET</VALUE>
+    </Event_Attribut>
+    <Event_Attribut>
+      <KEY typ="str">SOCKET_NO</KEY>
+      <VALUE typ="str">C</VALUE>
+    </Event_Attribut>
+    <Event_Attribut>
+      <KEY typ="str">SOCKET_SIGNAL</KEY>
+      <VALUE typ="str">OFF</VALUE>
+    </Event_Attribut>
+    <Event_Attribut>
+      <KEY typ="str">Comment</KEY>
+      <VALUE typ="str">Schranklicht jeden Abend abschalten</VALUE>
+    </Event_Attribut>
+    <Event_Attribut>
+      <KEY typ="str">Weekdays</KEY>
+      <VALUE typ="str">MONDAY;TUESDAY;WEDNESDAY;THURSDAY;FRIDAY;SATURDAY;SUNDAY</VALUE>
+    </Event_Attribut>
+    <Event_Attribut>
+      <KEY typ="str">Time</KEY>
+      <VALUE typ="str">22:30</VALUE>
+    </Event_Attribut>
+    <Event_Attribut>
+      <KEY typ="str">PUBLIC_HOLIDAY</KEY>
+      <VALUE typ="str">YES</VALUE>
+    </Event_Attribut>
+  </EVENT>
+  <EVENT>
+    <Event_Attribut>
+      <KEY typ="str">Event Type</KEY>
+      <VALUE typ="str">SOCKET</VALUE>
+    </Event_Attribut>
+    <Event_Attribut>
+      <KEY typ="str">SOCKET_NO</KEY>
+      <VALUE typ="str">A</VALUE>
+    </Event_Attribut>
+    <Event_Attribut>
+      <KEY typ="str">SOCKET_SIGNAL</KEY>
+      <VALUE typ="str">OFF</VALUE>
+    </Event_Attribut>
+    <Event_Attribut>
+      <KEY typ="str">Comment</KEY>
+      <VALUE typ="str">WLAN Repeater abschalten</VALUE>
+    </Event_Attribut>
+    <Event_Attribut>
+      <KEY typ="str">Weekdays</KEY>
+      <VALUE typ="str">MONDAY;TUESDAY;WEDNESDAY;THURSDAY;FRIDAY;SATURDAY;SUNDAY</VALUE>
+    </Event_Attribut>
+    <Event_Attribut>
+      <KEY typ="str">Time</KEY>
+      <VALUE typ="str">04:00</VALUE>
+    </Event_Attribut>
+    <Event_Attribut>
+      <KEY typ="str">PUBLIC_HOLIDAY</KEY>
+      <VALUE typ="str">YES</VALUE>
+    </Event_Attribut>
+  </EVENT>
+  <EVENT>
+    <Event_Attribut>
+      <KEY typ="str">Event Type</KEY>
+      <VALUE typ="str">SOCKET</VALUE>
+    </Event_Attribut>
+    <Event_Attribut>
+      <KEY typ="str">SOCKET_NO</KEY>
+      <VALUE typ="str">A</VALUE>
+    </Event_Attribut>
+    <Event_Attribut>
+      <KEY typ="str">SOCKET_SIGNAL</KEY>
+      <VALUE typ="str">ON</VALUE>
+    </Event_Attribut>
+    <Event_Attribut>
+      <KEY typ="str">Comment</KEY>
+      <VALUE typ="str">WLAN Repeater anschalten</VALUE>
+    </Event_Attribut>
+    <Event_Attribut>
+      <KEY typ="str">Weekdays</KEY>
+      <VALUE typ="str">MONDAY;TUESDAY;WEDNESDAY;THURSDAY;FRIDAY;SATURDAY;SUNDAY</VALUE>
+    </Event_Attribut>
+    <Event_Attribut>
+      <KEY typ="str">Time</KEY>
+      <VALUE typ="str">04:02</VALUE>
+    </Event_Attribut>
+    <Event_Attribut>
+      <KEY typ="str">PUBLIC_HOLIDAY</KEY>
+      <VALUE typ="str">YES</VALUE>
+    </Event_Attribut>
+  </EVENT>
+  <EVENT>
+    <Event_Attribut>
+      <KEY typ="str">Comment</KEY>
+      <VALUE typ="str">Check if Air quality sensor is running, sent mail if not</VALUE>
+    </Event_Attribut>
     <Event_Attribut>		
  -			<KEY typ="str">Event Type</KEY>		
  -			<VALUE typ="str">NETWORKCHECK</VALUE>		
@@ -199,8 +200,7 @@
  -		<Event_Attribut>		
  -			<KEY typ="str">EMAIL_NOTIFY_MODE</KEY>		
  -			<VALUE typ="str">FAILURE</VALUE>		
- -		</Event_Attribut>
-      <Event_Attribut>		
+ -		</Event_Attribut><Event_Attribut>		
  -			<KEY typ="str">EMAIL_RECEIVERS</KEY>		
  -			<VALUE typ="str">OLLI;HAGEN</VALUE>		
  -		</Event_Attribut>		
@@ -220,9 +220,9 @@
  -			<KEY typ="str">PUBLIC_HOLIDAY</KEY>		
  -			<VALUE typ="str">YES</VALUE>		
  -	</Event_Attribut>		
- -</EVENT> 
- <EVENT>
-  <Event_Attribut>		
+ -</EVENT>
+  <EVENT>
+    <Event_Attribut>		
  -			<KEY typ="str">Event Type</KEY>		
  -			<VALUE typ="str">AIRQUALITY_SENSOR_CHECK</VALUE>		
  -		</Event_Attribut>		
@@ -233,8 +233,7 @@
  -		<Event_Attribut>		
  -			<KEY typ="str">EMAIL_NOTIFY_MODE</KEY>		
  -			<VALUE typ="str">SUCCESS</VALUE>		
- -		</Event_Attribut>
-      <Event_Attribut>		
+ -		</Event_Attribut><Event_Attribut>		
  -			<KEY typ="str">EMAIL_RECEIVERS</KEY>		
  -			<VALUE typ="str">OLLI;HAGEN</VALUE>		
  -		</Event_Attribut>		
@@ -254,5 +253,5 @@
  -			<KEY typ="str">PUBLIC_HOLIDAY</KEY>		
  -			<VALUE typ="str">YES</VALUE>		
  -	</Event_Attribut>		
- -</EVENT>  
- </EVENT_LIST>
+ -</EVENT>
+</EVENT_LIST>
