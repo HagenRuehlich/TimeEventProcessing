@@ -22,7 +22,7 @@ XML_URL                 = "URL"
 XML_IP                  = "IP"
 XML_EMAIL_NOTIFY_MODE   = "EMAIL_NOTIFY_MODE"
 XML_EMAIL_RECEIVERS     = "EMAIL_RECEIVERS"
-
+XML_ATTENDEES           = "ATTENDEES" 
 #--------------------
 
 dEmailNotifyMode = {"NO" : EMAIL_NOTIFY_No, "SUCCESS" : EMAIL_NOTIFY_Success ,"FAILURE" : EMAIL_NOTIFY_Failure, "ALWAYS" : EMAIL_NOTIFY_Always}
@@ -30,6 +30,9 @@ dEmailNotifyMode = {"NO" : EMAIL_NOTIFY_No, "SUCCESS" : EMAIL_NOTIFY_Success ,"F
 
 def getEventFact ():
     return CXMLTimeEventFatory ()
+
+class CTimeEventObjReader ():
+    """   """
 
 class CAbstractTimeEventFatory ():
     def __init__(self):
@@ -268,6 +271,16 @@ class CXMLTimeEventFatory (CTimeEventFatory):
                     oTimeEvent.SetExeOnHoliday (bExeOnHoliday)
                 else:
                     logging.error ("Zulässiger Wert für Feiertagsausführung " + sExeOnHoliday)
+            #Decode list of person required to execute the event        
+            sAttendees = pEventDict.get (XML_ATTENDEES, "")
+            if sAttendees != "" :
+                sSingleAttendees = sAttendees.split (";")
+                for sAttendee in sSingleAttendees:
+                    if sAttendee in dIP_Name.keys ():
+                        sNewAttendee = dIP_Name [sAttendee]
+                        oTimeEvent.addAttendee (sNewAttendee)
+                    else:
+                        logging.error ("Zulässiger Wert für Anwesenden " + sAttendee)
             lTimeEventList.append (oTimeEvent)
         return lTimeEventList
         

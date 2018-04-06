@@ -125,6 +125,7 @@ class CTimeEvent (CTimeEventInterface):
         self._LastEventHour = -1
         self._LastMinute = - 1
         self._ExecuteOnHoliday = False
+        self._Attendees = []
 
     def init (self, weekdays, hours, minute):
         self._Weekdays = weekdays
@@ -133,6 +134,7 @@ class CTimeEvent (CTimeEventInterface):
         self._LastEventDay = -1
         self._LastEventHour = -1
         self._LastMinute = - 1
+
         
     def copyFromTimeEvent (self, pTimeEvent):
         """ Übernimmt die Time Event Wert vom übergebenen Objekt """      
@@ -141,6 +143,7 @@ class CTimeEvent (CTimeEventInterface):
         self._Hour = pTimeEvent.getHour ()
         self._Minute = pTimeEvent.getMinute ()
         self._ExecuteOnHoliday= pTimeEvent.executeOnHoliday ()
+        self._Attendees = pTimeEvent.getAttendees ()
     
 
     def reset (self):
@@ -178,7 +181,15 @@ class CTimeEvent (CTimeEventInterface):
         
     def SetExeOnHoliday (self, pbExeOnHoliday):
        self._ExecuteOnHoliday = pbExeOnHoliday
+
+
+    def getAttendees (self):
+        return self._Attendees
+       
       
+    def addAttendee (self, sNewAttendee):
+        assert type (sNewAttendee) == str
+        self._Attendees.append (sNewAttendee)
 
     def isDayInEvent (self, d):
          if (d in self._Weekdays):
@@ -216,8 +227,23 @@ class CTimeEvent (CTimeEventInterface):
             self._LastEventDay = day
             self._LastEventHour = hour
             self._LastMinute = minute
-            logging.info ("Event has to be executed")
-            self.action ()
+            bExecute = True
+            #check if the attendees are available
+            if len (self._Attendees) > 0 :
+                bExecute = False
+                for sAttendee in self._Attendees:
+                    #initiate the device representing the attendee
+                    oDevide = CNetWorkDevice (sAttendee)
+                    #assumption: the attendee is available if "his" device can be reached by a simple ping
+                    # 6.3. 2018: Attention: ping under Windows returns True always...
+                    bPingRes = oDevide.ping ()
+                    if bPingRes == True :
+                        bExecute = True
+                        #if one attendee can be reached the event can be executed
+                        break
+            if bExecute :
+                logging.info ("Event has to be executed")
+                self.action ()
               
 #Abstrakte Methode
     def action (self):
