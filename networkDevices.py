@@ -24,7 +24,9 @@ class CNetWorkDevice ():
             if os.system("ping -c 1 " + self._name) == 0:
                 bResult = True
         elif (eOsType == OS_WINDOWS):
-            if os.system("ping " + self._name) == 0:
+            # This implementation doesn't work for Windows, the os.system call results alwayse in True
+            # Solution the output of this call has to be piped and analysed, only if the the string "TTL" can be find, the ping was successful..
+            if os.system("ping -n 1 " + self._name) == 0:
                 bResult = True
         else:
             raise OSError
