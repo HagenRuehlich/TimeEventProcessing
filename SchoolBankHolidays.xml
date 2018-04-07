@@ -53,7 +53,7 @@
 		</Entry_Attribut>
 		<Entry_Attribut>
 			<KEY typ="str">PERIOD</KEY>
-			<VALUE typ="str">06.06.-16.06.</VALUE>
+			<VALUE typ="str">22.05.-02.06.</VALUE>
 		</Entry_Attribut>
 	</ENTRY>
 	<ENTRY>
@@ -67,7 +67,7 @@
 		</Entry_Attribut>
 		<Entry_Attribut>
 			<KEY typ="str">PERIOD</KEY>
-			<VALUE typ="str">29.07.-11.09.</VALUE>
+			<VALUE typ="str">30.07.-10.09.</VALUE>
 		</Entry_Attribut>
 	</ENTRY>
 	<ENTRY>
@@ -81,7 +81,7 @@
 		</Entry_Attribut>
 		<Entry_Attribut>
 			<KEY typ="str">PERIOD</KEY>
-		 <VALUE typ="str">30.10.-03.11.</VALUE>
+		 <VALUE typ="str">29.10.-02.11.</VALUE>
 		</Entry_Attribut>
 	</ENTRY>
  	<ENTRY>
@@ -137,7 +137,7 @@
 		</Entry_Attribut>
 		<Entry_Attribut>
 			<KEY typ="str">DATE</KEY>
-			<VALUE typ="str">25.05.</VALUE>
+			<VALUE typ="str">10.05.</VALUE>
 		</Entry_Attribut>
 	</ENTRY>
   <ENTRY>
@@ -151,7 +151,7 @@
 		</Entry_Attribut>
 		<Entry_Attribut>
 			<KEY typ="str">DATE</KEY>
-			<VALUE typ="str">15.06.</VALUE>
+			<VALUE typ="str">31.05.</VALUE>
 		</Entry_Attribut>
 	</ENTRY>
   <ENTRY>
