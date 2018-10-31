@@ -40,9 +40,13 @@ class CAirQualitySensor(CNetWorkDevice):
     def measureValue (self, iValueType):
         """reads one the possible values (PM2.5 or OM10) for the HTMl page the sensors provides in the local network"""
         assert type (iValueType) == int
-        req = urllib.request.Request ("http://" + dIP_Name["AirQualitySensor"] + "/values")
         bRes = False
-        f= urllib.request.urlopen (req)
+        req = urllib.request.Request ("http://" + dIP_Name["AirQualitySensor"] + "/values")
+        try:
+            f= urllib.request.urlopen (req)
+        except error.URLError as e:
+            logging.critical ('HtmlDownLoader download error:', e.reason)
+            return bRes
         byteHTML = f.read ()
         f.close()
         sHTML = byteHTML.decode("utf8")
@@ -76,6 +80,7 @@ class CAirQualitySensor(CNetWorkDevice):
             
             
         
-##if __name__ == "__main__":
-##    oSensor = CAirQualitySensor()
-##    oSensor.getCurrentValues ()
+if __name__ == "__main__":
+    oSensor = CAirQualitySensor()
+    oSensor.measure ()
+    
