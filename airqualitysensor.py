@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import logging
 import urllib.request
+import urllib.error
 import re
 from networkDevices import *
 from confidental import *
@@ -44,7 +45,7 @@ class CAirQualitySensor(CNetWorkDevice):
         req = urllib.request.Request ("http://" + dIP_Name["AirQualitySensor"] + "/values")
         try:
             f= urllib.request.urlopen (req)
-        except error.URLError as e:
+        except urllib.error.URLError as e:
             logging.critical ('HtmlDownLoader download error:', e.reason)
             return bRes
         byteHTML = f.read ()
@@ -82,5 +83,10 @@ class CAirQualitySensor(CNetWorkDevice):
         
 if __name__ == "__main__":
     oSensor = CAirQualitySensor()
+    #just to make sure that this stuff if known at runtime..
+    err = urllib.error.URLError ("Test")
     oSensor.measure ()
+    aCurrentValues = oSensor.getLastestResults()
+    print ("Aktuelle Werte: PM10 = " + str (aCurrentValues [PM100]) + " ,PM2,5 = " + str (aCurrentValues [PM25]))
+    
     
