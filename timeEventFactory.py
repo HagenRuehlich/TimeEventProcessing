@@ -8,7 +8,8 @@ from xmlbase import *
 from timeEventClasses import *
 
 #------ CONSTS
-XML_EVENT_FILE          = "events.xml"
+XML_EVENT_FILE_PI       = "/home/pi/pi-share/events.xml"
+XML_EVENT_FILE_WIN      = "events.xml"
 XML_EVENT_TAG           = "EVENT"
 XML_SOCKET_KEY          = "SOCKET_NO"
 XML_SOCKET_SIGNAL       = "SOCKET_SIGNAL"
@@ -61,6 +62,15 @@ class CXMLTimeEventFatory (CTimeEventFatory):
         #Speichert die Zeit wann das XML gelesen wurde
         self._ReadTimeXML = datetime.datetime (2012,1,1)
 
+    def sGetXMLFile (self):
+        """ return the concrete XML file depending on runtime platform PC/ Raspberry Pi"""
+        sXMLFile = ""
+        if (getOsType () == OS_LINUX):
+            sXMLFile = XML_EVENT_FILE_PI
+        else:
+            sXMLFile = XML_EVENT_FILE_WIN
+        return sXMLFile    
+
     def produceEvents (self):
         """Diese Methode bewirkt dass die Factors Events produiert, hier geschiet das durch Einlesen einer XML Datei """
         self.readXMLFile()
@@ -88,11 +98,12 @@ class CXMLTimeEventFatory (CTimeEventFatory):
         #Eine List von Dictionaries nimmt die Events auf, d.h. jedes Event wird in ein Dictionary eingelesen
         lListOfDictionaries = []
         #Prüfen ob die Datei existiert...
-        if not os.path.isfile (XML_EVENT_FILE):
-            logging.error (XML_EVENT_FILE + " nicht gefunden")
+        sXMLFile = self.sGetXMLFile ()
+        if not os.path.isfile (sXMLFile):
+            logging.error (sXMLFile + " nicht gefunden")
             raise IOError
         # XML Datei in Baumstruktur einlesen
-        tree = ElementTree.parse (XML_EVENT_FILE)
+        tree = ElementTree.parse (sXMLFile)
         eventXMLdict = tree.getroot()
         #jedes Element die entsprechenden Einträge ins Dictionary schreiben
         for xmlEvent in eventXMLdict:
@@ -203,7 +214,8 @@ class CXMLTimeEventFatory (CTimeEventFatory):
             self.addEventToXMLTree (self._Events[i], dictionary)
         #XML Datei schreiben    
         et = ElementTree.ElementTree (dictionary)
-        et.write (XML_EVENT_FILE)
+        sXMLFile = self.sGetXMLFile ()
+        et.write (sXMLFile)
 
     def readXMLelement (self, pXMLelement):
         """ Liefert den Wert eines einzelnen XML Tags zurück, es wird vorausgesetzt dass der übergebene Tag ein Attribute

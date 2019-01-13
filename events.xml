@@ -202,7 +202,7 @@
  -			<VALUE typ="str">FAILURE</VALUE>		
  -		</Event_Attribut><Event_Attribut>		
  -			<KEY typ="str">EMAIL_RECEIVERS</KEY>		
- -			<VALUE typ="str">OLLI;HAGEN</VALUE>		
+ -			<VALUE typ="str">HAGEN</VALUE>		
  -		</Event_Attribut>		
  -		<Event_Attribut>		
  -			<KEY typ="str">Comment</KEY>		
@@ -235,7 +235,7 @@
  -			<VALUE typ="str">SUCCESS</VALUE>		
  -		</Event_Attribut><Event_Attribut>		
  -			<KEY typ="str">EMAIL_RECEIVERS</KEY>		
- -			<VALUE typ="str">OLLI;HAGEN</VALUE>		
+ -			<VALUE typ="str">HAGEN</VALUE>		
  -		</Event_Attribut>		
  -		<Event_Attribut>		
  -			<KEY typ="str">Comment</KEY>		
