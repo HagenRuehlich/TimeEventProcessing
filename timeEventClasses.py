@@ -513,6 +513,5 @@ if __name__ == "__main__":
     oSensorCheckEvent.setIP ("AirQualitySensor")
     oSensorCheckEvent.setEmailNotifyMode (EMAIL_NOTIFY_Always)
     oSensorCheckEvent.addMailReceiver (dName_MailAdress ["HAGEN"])
-    oSensorCheckEvent.addMailReceiver (dName_MailAdress ["OLLI"])
     oSensorCheckEvent.action()
     
