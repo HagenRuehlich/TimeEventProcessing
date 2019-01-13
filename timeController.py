@@ -21,7 +21,7 @@ XML_DATE                = "DATE"
 XML_PERIOD              = "PERIOD"
 
 
-CURRENT_YEAR = 2018
+CURRENT_YEAR = 2019
 
 
 

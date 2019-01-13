@@ -1,199 +1,213 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <ENTRY_LIST>
-<ENTRY>
-  		<Entry_Attribut>
-      <KEY typ="str">Comment</KEY>
-			<VALUE typ="str">Neujahr</VALUE> 	
-		</Entry_Attribut>
- 		<Entry_Attribut>
-			<KEY typ="str">TYPE</KEY>
-			<VALUE typ="str">PUBLIC_HOLIDAY</VALUE>
-		</Entry_Attribut>
-		<Entry_Attribut>
-			<KEY typ="str">DATE</KEY>
-			<VALUE typ="str">01.01.</VALUE>
-		</Entry_Attribut>
-	</ENTRY>          
-	<ENTRY>
-		<Entry_Attribut>
-      <KEY typ="str">Comment</KEY>
-			<VALUE typ="str">Winterferien</VALUE> 	
-		</Entry_Attribut>
- 		<Entry_Attribut>
-			<KEY typ="str">TYPE</KEY>
-			<VALUE typ="str">SCHOOL_HOLIDAYS</VALUE> /Entry_Attribut&gt;
-    </Entry_Attribut>  
-		<Entry_Attribut>
-			<KEY typ="str">PERIOD</KEY>
-			<VALUE typ="str">27.02.-03.03.</VALUE>
-		</Entry_Attribut>
-	</ENTRY>
-	<ENTRY>
-		<Entry_Attribut>
-      <KEY typ="str">Comment</KEY>
-			<VALUE typ="str">Osterferien</VALUE> 	
-		</Entry_Attribut>
- 		<Entry_Attribut>
-			<KEY typ="str">TYPE</KEY>
-			<VALUE typ="str">SCHOOL_HOLIDAYS</VALUE>
-		</Entry_Attribut>
-		<Entry_Attribut>
-			<KEY typ="str">PERIOD</KEY>
-			<VALUE typ="str">10.04.-21.04.</VALUE>
-		</Entry_Attribut>
-	</ENTRY>
-	<ENTRY>
-		<Entry_Attribut>
-      <KEY typ="str">Comment</KEY>
-			<VALUE typ="str">Pfingstferien</VALUE> 	
-		</Entry_Attribut>
- 		<Entry_Attribut>
-			<KEY typ="str">TYPE</KEY>
-			<VALUE typ="str">SCHOOL_HOLIDAYS</VALUE>
-		</Entry_Attribut>
-		<Entry_Attribut>
-			<KEY typ="str">PERIOD</KEY>
-			<VALUE typ="str">22.05.-02.06.</VALUE>
-		</Entry_Attribut>
-	</ENTRY>
-	<ENTRY>
-		<Entry_Attribut>
-      <KEY typ="str">Comment</KEY>
-			<VALUE typ="str">Sommerferien</VALUE> 	
-		</Entry_Attribut>
- 		<Entry_Attribut>
-			<KEY typ="str">TYPE</KEY>
-			<VALUE typ="str">SCHOOL_HOLIDAYS</VALUE>
-		</Entry_Attribut>
-		<Entry_Attribut>
-			<KEY typ="str">PERIOD</KEY>
-			<VALUE typ="str">30.07.-10.09.</VALUE>
-		</Entry_Attribut>
-	</ENTRY>
-	<ENTRY>
-		<Entry_Attribut>
-      <KEY typ="str">Comment</KEY>
-			<VALUE typ="str">Herbstferien</VALUE> 	
-		</Entry_Attribut>
- 		<Entry_Attribut>
-			<KEY typ="str">TYPE</KEY>
-			<VALUE typ="str">SCHOOL_HOLIDAYS</VALUE>
-		</Entry_Attribut>
-		<Entry_Attribut>
-			<KEY typ="str">PERIOD</KEY>
-		 <VALUE typ="str">29.10.-02.11.</VALUE>
-		</Entry_Attribut>
-	</ENTRY>
- 	<ENTRY>
-  	<Entry_Attribut>
-      <KEY typ="str">Comment</KEY>
-			<VALUE typ="str">Weihnachtsferien</VALUE> 	
-		</Entry_Attribut>
- 		<Entry_Attribut>
-			<KEY typ="str">TYPE</KEY>
-			<VALUE typ="str">SCHOOL_HOLIDAYS</VALUE>
-		</Entry_Attribut>
-		<Entry_Attribut>
-			<KEY typ="str">PERIOD</KEY>
-			<VALUE typ="str">21.12.-31.12.</VALUE>
-		</Entry_Attribut>
-	</ENTRY>
   <ENTRY>
-  	<Entry_Attribut>
+    <Entry_Attribut>
       <KEY typ="str">Comment</KEY>
-			<VALUE typ="str">Karfreitag</VALUE> 	
-		</Entry_Attribut>
- 		<Entry_Attribut>
-			<KEY typ="str">TYPE</KEY>
-			<VALUE typ="str">PUBLIC_HOLIDAY</VALUE>
-		</Entry_Attribut>
-		<Entry_Attribut>
-			<KEY typ="str">DATE</KEY>
-			<VALUE typ="str">14.04.</VALUE>
-		</Entry_Attribut>
-	</ENTRY>
+      <VALUE typ="str">Neujahr</VALUE>
+    </Entry_Attribut>
+    <Entry_Attribut>
+      <KEY typ="str">TYPE</KEY>
+      <VALUE typ="str">PUBLIC_HOLIDAY</VALUE>
+    </Entry_Attribut>
+    <Entry_Attribut>
+      <KEY typ="str">DATE</KEY>
+      <VALUE typ="str">01.01.</VALUE>
+    </Entry_Attribut>
+  </ENTRY>
   <ENTRY>
-  	<Entry_Attribut>
+    <Entry_Attribut>
       <KEY typ="str">Comment</KEY>
-			<VALUE typ="str">Ostermontag</VALUE> 	
-		</Entry_Attribut>
- 		<Entry_Attribut>
-			<KEY typ="str">TYPE</KEY>
-			<VALUE typ="str">PUBLIC_HOLIDAY</VALUE>
-		</Entry_Attribut>
-		<Entry_Attribut>
-			<KEY typ="str">DATE</KEY>
-			<VALUE typ="str">17.04.</VALUE>
-		</Entry_Attribut>
-   </ENTRY>
-   <ENTRY>
-  		<Entry_Attribut>
-      <KEY typ="str">Comment</KEY>
-			<VALUE typ="str">Christi Himmelfahr</VALUE> 	
-		</Entry_Attribut>
- 		<Entry_Attribut>
-			<KEY typ="str">TYPE</KEY>
-			<VALUE typ="str">PUBLIC_HOLIDAY</VALUE>
-		</Entry_Attribut>
-		<Entry_Attribut>
-			<KEY typ="str">DATE</KEY>
-			<VALUE typ="str">10.05.</VALUE>
-		</Entry_Attribut>
-	</ENTRY>
+      <VALUE typ="str">Winterferien</VALUE>
+    </Entry_Attribut>
+    <Entry_Attribut>
+      <KEY typ="str">TYPE</KEY>
+      <VALUE typ="str">SCHOOL_HOLIDAYS</VALUE> /Entry_Attribut&gt;
+    </Entry_Attribut>
+    <Entry_Attribut>
+      <KEY typ="str">PERIOD</KEY>
+      <VALUE typ="str">04.03.-08.03.</VALUE>
+    </Entry_Attribut>
+  </ENTRY>
   <ENTRY>
-  		<Entry_Attribut>
+    <Entry_Attribut>
       <KEY typ="str">Comment</KEY>
-			<VALUE typ="str">Fronleichnam</VALUE> 	
-		</Entry_Attribut>
- 		<Entry_Attribut>
-			<KEY typ="str">TYPE</KEY>
-			<VALUE typ="str">PUBLIC_HOLIDAY</VALUE>
-		</Entry_Attribut>
-		<Entry_Attribut>
-			<KEY typ="str">DATE</KEY>
-			<VALUE typ="str">31.05.</VALUE>
-		</Entry_Attribut>
-	</ENTRY>
+      <VALUE typ="str">Osterferien</VALUE>
+    </Entry_Attribut>
+    <Entry_Attribut>
+      <KEY typ="str">TYPE</KEY>
+      <VALUE typ="str">SCHOOL_HOLIDAYS</VALUE>
+    </Entry_Attribut>
+    <Entry_Attribut>
+      <KEY typ="str">PERIOD</KEY>
+      <VALUE typ="str">15.04.-27.04.</VALUE>
+    </Entry_Attribut>
+  </ENTRY>
   <ENTRY>
-  		<Entry_Attribut>
+    <Entry_Attribut>
       <KEY typ="str">Comment</KEY>
-			<VALUE typ="str">Mariae Himmelfahrt</VALUE> 	
-		</Entry_Attribut>
- 		<Entry_Attribut>
-			<KEY typ="str">TYPE</KEY>
-			<VALUE typ="str">PUBLIC_HOLIDAY</VALUE>
-		</Entry_Attribut>
-		<Entry_Attribut>
-			<KEY typ="str">DATE</KEY>
-			<VALUE typ="str">15.08.</VALUE>
-		</Entry_Attribut>
-	</ENTRY>
+      <VALUE typ="str">Pfingstferien</VALUE>
+    </Entry_Attribut>
+    <Entry_Attribut>
+      <KEY typ="str">TYPE</KEY>
+      <VALUE typ="str">SCHOOL_HOLIDAYS</VALUE>
+    </Entry_Attribut>
+    <Entry_Attribut>
+      <KEY typ="str">PERIOD</KEY>
+      <VALUE typ="str">11.06.-21.06.</VALUE>
+    </Entry_Attribut>
+  </ENTRY>
   <ENTRY>
-  		<Entry_Attribut>
+    <Entry_Attribut>
       <KEY typ="str">Comment</KEY>
-			<VALUE typ="str">Tag der deutschen Einheit</VALUE> 	
-		</Entry_Attribut>
- 		<Entry_Attribut>
-			<KEY typ="str">TYPE</KEY>
-			<VALUE typ="str">PUBLIC_HOLIDAY</VALUE>
-		</Entry_Attribut>
-		<Entry_Attribut>
-			<KEY typ="str">DATE</KEY>
-			<VALUE typ="str">03.10.</VALUE>
-		</Entry_Attribut>
-	</ENTRY>
+      <VALUE typ="str">Sommerferien</VALUE>
+    </Entry_Attribut>
+    <Entry_Attribut>
+      <KEY typ="str">TYPE</KEY>
+      <VALUE typ="str">SCHOOL_HOLIDAYS</VALUE>
+    </Entry_Attribut>
+    <Entry_Attribut>
+      <KEY typ="str">PERIOD</KEY>
+      <VALUE typ="str">29.07.-09.09.</VALUE>
+    </Entry_Attribut>
+  </ENTRY>
   <ENTRY>
-  		<Entry_Attribut>
+    <Entry_Attribut>
       <KEY typ="str">Comment</KEY>
-			<VALUE typ="str">Allerheiligen</VALUE> 	
-		</Entry_Attribut>
- 		<Entry_Attribut>
-			<KEY typ="str">TYPE</KEY>
-			<VALUE typ="str">PUBLIC_HOLIDAY</VALUE>
-		</Entry_Attribut>
-		<Entry_Attribut>
-			<KEY typ="str">DATE</KEY>
-			<VALUE typ="str">01.11.</VALUE>
-		</Entry_Attribut>
-	</ENTRY>          
+      <VALUE typ="str">Herbstferien</VALUE>
+    </Entry_Attribut>
+    <Entry_Attribut>
+      <KEY typ="str">TYPE</KEY>
+      <VALUE typ="str">SCHOOL_HOLIDAYS</VALUE>
+    </Entry_Attribut>
+    <Entry_Attribut>
+      <KEY typ="str">PERIOD</KEY>
+      <VALUE typ="str">28.10.-31.10.</VALUE>
+    </Entry_Attribut>
+  </ENTRY>
+  <ENTRY>
+    <Entry_Attribut>
+      <KEY typ="str">Comment</KEY>
+      <VALUE typ="str">Weihnachtsferien</VALUE>
+    </Entry_Attribut>
+    <Entry_Attribut>
+      <KEY typ="str">TYPE</KEY>
+      <VALUE typ="str">SCHOOL_HOLIDAYS</VALUE>
+    </Entry_Attribut>
+    <Entry_Attribut>
+      <KEY typ="str">PERIOD</KEY>
+      <VALUE typ="str">23.12.-31.12.</VALUE>
+    </Entry_Attribut>
+  </ENTRY>
+  <ENTRY>
+    <Entry_Attribut>
+      <KEY typ="str">Comment</KEY>
+      <VALUE typ="str">Karfreitag</VALUE>
+    </Entry_Attribut>
+    <Entry_Attribut>
+      <KEY typ="str">TYPE</KEY>
+      <VALUE typ="str">PUBLIC_HOLIDAY</VALUE>
+    </Entry_Attribut>
+    <Entry_Attribut>
+      <KEY typ="str">DATE</KEY>
+      <VALUE typ="str">19.04.</VALUE>
+    </Entry_Attribut>
+  </ENTRY>
+  <ENTRY>
+    <Entry_Attribut>
+      <KEY typ="str">Comment</KEY>
+      <VALUE typ="str">Ostermontag</VALUE>
+    </Entry_Attribut>
+    <Entry_Attribut>
+      <KEY typ="str">TYPE</KEY>
+      <VALUE typ="str">PUBLIC_HOLIDAY</VALUE>
+    </Entry_Attribut>
+    <Entry_Attribut>
+      <KEY typ="str">DATE</KEY>
+      <VALUE typ="str">22.04.</VALUE>
+    </Entry_Attribut>
+  </ENTRY>
+  <ENTRY>
+    <Entry_Attribut>
+      <KEY typ="str">Comment</KEY>
+      <VALUE typ="str">Christi Himmelfahr</VALUE>
+    </Entry_Attribut>
+    <Entry_Attribut>
+      <KEY typ="str">TYPE</KEY>
+      <VALUE typ="str">PUBLIC_HOLIDAY</VALUE>
+    </Entry_Attribut>
+    <Entry_Attribut>
+      <KEY typ="str">DATE</KEY>
+      <VALUE typ="str">30.05.</VALUE>
+    </Entry_Attribut>
+  </ENTRY>
+  <ENTRY>
+    <Entry_Attribut>
+      <KEY typ="str">Comment</KEY>
+      <VALUE typ="str">Fronleichnam</VALUE>
+    </Entry_Attribut>
+    <Entry_Attribut>
+      <KEY typ="str">TYPE</KEY>
+      <VALUE typ="str">PUBLIC_HOLIDAY</VALUE>
+    </Entry_Attribut>
+    <Entry_Attribut>
+      <KEY typ="str">DATE</KEY>
+      <VALUE typ="str">20.06.</VALUE>
+    </Entry_Attribut>
+  </ENTRY>
+  <ENTRY>
+    <Entry_Attribut>
+      <KEY typ="str">Comment</KEY>
+      <VALUE typ="str">Mariae Himmelfahrt</VALUE>
+    </Entry_Attribut>
+    <Entry_Attribut>
+      <KEY typ="str">TYPE</KEY>
+      <VALUE typ="str">PUBLIC_HOLIDAY</VALUE>
+    </Entry_Attribut>
+    <Entry_Attribut>
+      <KEY typ="str">DATE</KEY>
+      <VALUE typ="str">15.08.</VALUE>
+    </Entry_Attribut>
+  </ENTRY>
+  <ENTRY>
+    <Entry_Attribut>
+      <KEY typ="str">Comment</KEY>
+      <VALUE typ="str">Tag der deutschen Einheit</VALUE>
+    </Entry_Attribut>
+    <Entry_Attribut>
+      <KEY typ="str">TYPE</KEY>
+      <VALUE typ="str">PUBLIC_HOLIDAY</VALUE>
+    </Entry_Attribut>
+    <Entry_Attribut>
+      <KEY typ="str">DATE</KEY>
+      <VALUE typ="str">03.10.</VALUE>
+    </Entry_Attribut>
+  </ENTRY>
+  <ENTRY>
+    <Entry_Attribut>
+      <KEY typ="str">Comment</KEY>
+      <VALUE typ="str">Allerheiligen</VALUE>
+    </Entry_Attribut>
+    <Entry_Attribut>
+      <KEY typ="str">TYPE</KEY>
+      <VALUE typ="str">PUBLIC_HOLIDAY</VALUE>
+    </Entry_Attribut>
+    <Entry_Attribut>
+      <KEY typ="str">DATE</KEY>
+      <VALUE typ="str">01.11.</VALUE>
+    </Entry_Attribut>
+  </ENTRY>
+  <ENTRY>
+    <Entry_Attribut>
+      <KEY typ="str">Comment</KEY>
+      <VALUE typ="str">Tag der Arbeit</VALUE>
+    </Entry_Attribut>
+    <Entry_Attribut>
+      <KEY typ="str">TYPE</KEY>
+      <VALUE typ="str">PUBLIC_HOLIDAY</VALUE>
+    </Entry_Attribut>
+    <Entry_Attribut>
+      <KEY typ="str">DATE</KEY>
+      <VALUE typ="str">01.05.</VALUE>
+    </Entry_Attribut>
+  </ENTRY>
 </ENTRY_LIST>
