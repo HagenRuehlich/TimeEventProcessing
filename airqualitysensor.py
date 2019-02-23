@@ -48,28 +48,32 @@ class CAirQualitySensor(CNetWorkDevice):
         except urllib.error.URLError as e:
             logging.critical ('HtmlDownLoader download error:', e.reason)
             return bRes
-        byteHTML = f.read ()
-        f.close()
-        sHTML = byteHTML.decode("utf8")
-        #the strings containing the 2 value the sensor generates should appreare only one time in the HTML page
-        iCheck = 0 
-        for m in re.finditer (self.d_ValueSearchExpr [iValueType], sHTML, re.I):
-            iCheck = iCheck + 1
-            assert (iCheck == 1)
-            sProcessStr= m.group(0)
-            #sProcessStr should now look like: <td>PM2.5</td><td class='r'>5.3&nbsp
-            sSplittedStr1 = sProcessStr.rsplit ("&")
-            sSplittedStr2 = sSplittedStr1 [0].rsplit (">")
-            #The last sub string represents the value...
-            sValue = sSplittedStr2 [len (sSplittedStr2) - 1]
-            if (sValue != ""):
-                try:
-                    self._currentValues [iValueType] = float (sValue)
-                    bRes = True
-                except ValueError:
-                    bRes = False
-                    logging.critical ("Could not read value from air quality sensors HTML side")                    
-        return bRes
+        except:
+            logging.critical ('HtmlDownLoader download error:', "Unbekannte Ursache")
+            return bRes
+        else:
+            byteHTML = f.read ()
+            f.close()
+            sHTML = byteHTML.decode("utf8")
+            #the strings containing the 2 value the sensor generates should appreare only one time in the HTML page
+            iCheck = 0 
+            for m in re.finditer (self.d_ValueSearchExpr [iValueType], sHTML, re.I):
+                iCheck = iCheck + 1
+                assert (iCheck == 1)
+                sProcessStr= m.group(0)
+                #sProcessStr should now look like: <td>PM2.5</td><td class='r'>5.3&nbsp
+                sSplittedStr1 = sProcessStr.rsplit ("&")
+                sSplittedStr2 = sSplittedStr1 [0].rsplit (">")
+                #The last sub string represents the value...
+                sValue = sSplittedStr2 [len (sSplittedStr2) - 1]
+                if (sValue != ""):
+                    try:
+                        self._currentValues [iValueType] = float (sValue)
+                        bRes = True
+                    except ValueError:
+                        bRes = False
+                        logging.critical ("Could not read value from air quality sensors HTML side")                    
+            return bRes
             
             
             
@@ -88,5 +92,6 @@ if __name__ == "__main__":
     oSensor.measure ()
     aCurrentValues = oSensor.getLastestResults()
     print ("Aktuelle Werte: PM10 = " + str (aCurrentValues [PM100]) + " ,PM2,5 = " + str (aCurrentValues [PM25]))
+    
     
     
